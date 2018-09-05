@@ -91,8 +91,6 @@ public class StudentController {
         }
 
         StudentList.remove(no);
-
-        System.out.println("삭제하였습니다.");
     }
 
     private static void detailStudent() {

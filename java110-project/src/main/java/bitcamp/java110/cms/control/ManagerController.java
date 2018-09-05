@@ -61,7 +61,7 @@ public class ManagerController {
         for (int i=0;i<ManagerList.size();i++) {
             Manager s = ManagerList.get(i);
 
-            System.out.printf("%d, %s, %s, %s, %s, %s\n",
+            System.out.printf("%d: %s, %s, %s, %s, %s\n",
                     i,
                     s.getName(),
                     s.getEmail(), 
