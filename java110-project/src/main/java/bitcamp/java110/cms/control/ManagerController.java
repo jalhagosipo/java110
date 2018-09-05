@@ -37,6 +37,10 @@ public class ManagerController {
                 printManagers();
             } else if (command.equals("add")) {
                 inputManagers();
+            } else if (command.equals("delete")) {
+                deleteManager();
+            } else if (command.equals("detail")) {
+                detailManager();
             } else if (command.equals("quit")) {
                 break;
             } else {
@@ -44,7 +48,61 @@ public class ManagerController {
             }
         }
     }
-  
+
+    private static void deleteManager() {
+        System.out.println("삭제할 번호? ");
+        int no = Integer.parseInt(keyIn.nextLine());
+
+        if(no<0 || no>=managerIndex) {
+            System.out.println("무효한 번호입니다.");
+            return;
+        }
+
+        for(int i=no;i<=managerIndex-2;i++) {
+            managers[i] = managers[i+1];
+        }
+        managerIndex--;
+        System.out.println("삭제하였습니다.");
+    }
+
+    private static void detailManager() {
+        System.out.println("조회할 번호? ");
+        int no = Integer.parseInt(keyIn.nextLine());
+
+        if(no<0 || no>=managerIndex) {
+            System.out.println("무효한 번호입니다.");
+            return;
+        }
+        
+        System.out.printf("이름: %s\n",managers[no].getName());
+        System.out.printf("이메일: %s\n",managers[no].getEmail());
+        System.out.printf("암호: %s\n",managers[no].getPassword());
+        System.out.printf("전화: %s\n",managers[no].getTel());
+        System.out.printf("직위: %s\n",managers[no].getPosition());
+    }
+
+    static {
+        Manager s= new Manager();
+        s.setName("a");
+        managers[managerIndex++]=s;
+
+        s= new Manager();
+        s.setName("b");
+        managers[managerIndex++]=s;
+
+        s= new Manager();
+        s.setName("c");
+        managers[managerIndex++]=s;
+
+        s= new Manager();
+        s.setName("d");
+        managers[managerIndex++]=s;
+
+        s= new Manager();
+        s.setName("e");
+        managers[managerIndex++]=s;
+    }
+
     private static void printManagers() {
 
         int count = 0;
@@ -80,7 +138,10 @@ public class ManagerController {
 
             System.out.print("직위? ");
             m.setPosition(keyIn.nextLine());
-
+            
+            if(managerIndex == managers.length) {
+                increaseStorage();
+            }
 
             managers[managerIndex++] = m;
 
@@ -91,5 +152,14 @@ public class ManagerController {
             }
         }
 
+    }
+    private static void increaseStorage() {
+        //배열 크기 늘리기
+        Manager[] newList = new Manager[managers.length+3];
+        for(int i=0;i<managers.length;i++) {
+            newList[i] = managers[i];
+        }
+
+        managers = newList;
     }
 }
