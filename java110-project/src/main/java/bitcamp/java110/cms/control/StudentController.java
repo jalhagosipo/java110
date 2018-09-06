@@ -1,9 +1,9 @@
 package bitcamp.java110.cms.control;
 
+import java.util.List;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.domain.Student;
-import bitcamp.java110.cms.util.List;
 
 //확장성때문에 static을 처음부터 없이 짜는거였던거임.그래서 인스턴스를쓰는것임
 
