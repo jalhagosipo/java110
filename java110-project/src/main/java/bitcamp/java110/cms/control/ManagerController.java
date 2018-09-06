@@ -6,7 +6,7 @@ import bitcamp.java110.cms.util.ArrayList;
 
 public class ManagerController {
 
-    private ArrayList managaers = new ArrayList();
+    private ArrayList<Manager> managaers = new ArrayList<>();
     public Scanner keyIn;
    
     public ManagerController(Scanner keyIn) {
@@ -39,7 +39,7 @@ public class ManagerController {
 
         int count = 0;
         for (int i=0;i<managaers.size();i++) {
-            Manager s = (Manager)managaers.get(i);
+            Manager s = managaers.get(i);
 
             System.out.printf("%d: %s, %s, %s, %s, %s\n",
                     i,
@@ -76,7 +76,7 @@ public class ManagerController {
             return;
         }
         
-        Manager manager = (Manager)managaers.get(no);
+        Manager manager = managaers.get(no);
         
         System.out.printf("이름: %s\n",manager.getName());
         System.out.printf("이메일: %s\n",manager.getEmail());
