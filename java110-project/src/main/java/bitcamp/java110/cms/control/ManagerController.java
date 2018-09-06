@@ -2,15 +2,16 @@ package bitcamp.java110.cms.control;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.domain.Manager;
-import bitcamp.java110.cms.util.LinkedList;
+import bitcamp.java110.cms.util.List;
 
 public class ManagerController {
 
-    private LinkedList<Manager> managaers = new LinkedList<>();
+    private List<Manager> managers;
     public Scanner keyIn;
    
-    public ManagerController(Scanner keyIn) {
+    public ManagerController(Scanner keyIn, List<Manager> managers) {
         this.keyIn=keyIn;
+        this.managers = managers;
     }
     
     public void serviceManagerMenu() {
@@ -37,8 +38,8 @@ public class ManagerController {
     
     private void printManagers() {
 
-        for (int i=0;i<managaers.size();i++) {
-            Manager s = managaers.get(i);
+        for (int i=0;i<managers.size();i++) {
+            Manager s = managers.get(i);
 
             System.out.printf("%d: %s, %s, %s, %s, %s\n",
                     i,
@@ -55,12 +56,12 @@ public class ManagerController {
         System.out.println("삭제할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 
-        if(no<0 || no>=managaers.size()) {
+        if(no<0 || no>=managers.size()) {
             System.out.println("무효한 번호입니다.");
             return;
         }
         
-        managaers.remove(no);
+        managers.remove(no);
         
         
         System.out.println("삭제하였습니다.");
@@ -70,12 +71,12 @@ public class ManagerController {
         System.out.println("조회할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 
-        if(no<0 || no>=managaers.size()) {
+        if(no<0 || no>=managers.size()) {
             System.out.println("무효한 번호입니다.");
             return;
         }
         
-        Manager manager = managaers.get(no);
+        Manager manager = managers.get(no);
         
         System.out.printf("이름: %s\n",manager.getName());
         System.out.printf("이메일: %s\n",manager.getEmail());
@@ -102,7 +103,7 @@ public class ManagerController {
             System.out.print("직위? ");
             m.setPosition(keyIn.nextLine());
             
-            managaers.add(m);
+            managers.add(m);
            
             System.out.println("계속 하시겠습니까?(Y/n) ");
             String answer = keyIn.nextLine();
