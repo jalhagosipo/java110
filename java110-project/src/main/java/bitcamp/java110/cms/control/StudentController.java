@@ -3,13 +3,13 @@ package bitcamp.java110.cms.control;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.domain.Student;
-import bitcamp.java110.cms.util.ArrayList;
+import bitcamp.java110.cms.util.LinkedList;
 
 //확장성때문에 static을 처음부터 없이 짜는거였던거임.그래서 인스턴스를쓰는것임
 
 public class StudentController {
 
-    private ArrayList<Student> students = new ArrayList<>();
+    private LinkedList<Student> students = new LinkedList<>();
     public Scanner keyIn;
 
     public StudentController(Scanner keyIn) {
@@ -38,8 +38,6 @@ public class StudentController {
     }
 
     private void printStudents() {
-
-        int count = 0;
         
         for (int i=0;i<students.size();i++) {
            Student s = students.get(i);
