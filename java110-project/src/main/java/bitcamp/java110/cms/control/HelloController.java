@@ -9,7 +9,7 @@ public class HelloController implements Controller{
     @Override
     public void service(Scanner keyIn) {
         
-        System.out.println("ì•ˆë…•í•˜ì„¸ìš”");
+        System.out.println("?•ˆ?…•?•˜?„¸?š”");
     }
 
 }
