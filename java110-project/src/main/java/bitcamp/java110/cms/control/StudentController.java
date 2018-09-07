@@ -1,5 +1,6 @@
 package bitcamp.java110.cms.control;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,15 +8,15 @@ import bitcamp.java110.cms.domain.Student;
 
 //확장성때문에 static을 처음부터 없이 짜는거였던거임.그래서 인스턴스를쓰는것임
 
-public class StudentController implements Controller{
+public class StudentController implements Controller {
 
-    private List<Student> students;
+    public String name ="1";
+    private List<Student> students = new ArrayList<>();
 
-    public StudentController(List<Student> students) {
-        this.students=students;
+    public StudentController() {
         init();
     }
-    
+
     public void service(Scanner keyIn) {
 
         while (true) {
@@ -38,18 +39,18 @@ public class StudentController implements Controller{
     }
 
     private void printStudents() {
-        
-        for (int i=0;i<students.size();i++) {
-           Student s = students.get(i);
-           
-            System.out.printf("%d: %s, %s, %s, %s, %b, %s\n",
-                    i,
-                    s.getName(), 
-                    s.getEmail(),
-                    s.getPassword(), 
-                    s.getSchool(),
-                    s.isWorking(), 
-                    s.getTel());
+
+        for (int i = 0; i < students.size(); i++) {
+            Student s = students.get(i);
+
+            System.out.printf("%d: %s, %s, %s, %s, %b, %s\n"
+                    ,i
+                    , s.getName()
+                    , s.getEmail()
+                    , s.getPassword()
+                    ,s.getSchool()
+                    , s.isWorking()
+                    , s.getTel());
         }
 
     }
@@ -91,7 +92,7 @@ public class StudentController implements Controller{
         System.out.println("삭제할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 
-        if(no<0 || no>=students.size()) {
+        if (no < 0 || no >= students.size()) {
             System.out.println("무효한 번호입니다.");
             return;
         }
@@ -103,42 +104,41 @@ public class StudentController implements Controller{
         System.out.println("조회할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 
-        if(no<0 || no>=students.size()) {
+        if (no < 0 || no >= students.size()) {
             System.out.println("무효한 번호입니다.");
             return;
         }
-        
+
         Student student = students.get(no);
 
-        System.out.printf("이름: %s\n",student.getName());
-        System.out.printf("이메일: %s\n",student.getEmail());
-        System.out.printf("암호: %s\n",student.getPassword());
-        System.out.printf("최종학력: %s\n",student.getSchool());
-        System.out.printf("전화: %s\n",student.getTel());
-        System.out.printf("재직여부: %b\n",student.isWorking());
+        System.out.printf("이름: %s\n", student.getName());
+        System.out.printf("이메일: %s\n", student.getEmail());
+        System.out.printf("암호: %s\n", student.getPassword());
+        System.out.printf("최종학력: %s\n", student.getSchool());
+        System.out.printf("전화: %s\n", student.getTel());
+        System.out.printf("재직여부: %b\n", student.isWorking());
     }
 
-     private  void init(){
-        Student s= new Student();
+    private void init() {
+        Student s = new Student();
         s.setName("a");
         students.add(s);
 
-        s= new Student();
+        s = new Student();
         s.setName("b");
         students.add(s);
 
-        s= new Student();
+        s = new Student();
         s.setName("c");
         students.add(s);
 
-        s= new Student();
+        s = new Student();
         s.setName("d");
         students.add(s);
 
-        s= new Student();
+        s = new Student();
         s.setName("e");
         students.add(s);
     }
-
 
 }
