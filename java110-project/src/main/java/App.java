@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+import bitcamp.java110.cms.context.ApplicationContext;
 import bitcamp.java110.cms.control.Controller;
 import bitcamp.java110.cms.control.ManagerController;
 import bitcamp.java110.cms.control.StudentController;
@@ -18,13 +19,9 @@ public class App {
 
     static Scanner keyIn = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         
-        HashMap<String,Controller> requestHandlerMapping = new HashMap<>(); 
-        
-        requestHandlerMapping.put("1", new StudentController(new LinkedList<Student>()));
-        requestHandlerMapping.put("2", new TeacherController(new ArrayList<Teacher>()));
-        requestHandlerMapping.put("3", new ManagerController(new ArrayList<Manager>()));
+        ApplicationContext iocContainer = new ApplicationContext("bitcamp.java110.cms.control"); 
         
         while (true) {
             String menu = promptMenu();
@@ -33,8 +30,8 @@ public class App {
                 break;
             }
             
+            Controller controller = (Controller)iocContainer.getBean(menu);
             
-            Controller controller = requestHandlerMapping.get(menu);
             if(controller!=null) {
                 controller.service(keyIn);
             }else {
