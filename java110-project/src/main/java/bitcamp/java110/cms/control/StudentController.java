@@ -7,18 +7,16 @@ import bitcamp.java110.cms.domain.Student;
 
 //확장성때문에 static을 처음부터 없이 짜는거였던거임.그래서 인스턴스를쓰는것임
 
-public class StudentController {
+public class StudentController implements Controller{
 
     private List<Student> students;
-    public Scanner keyIn;
 
-    public StudentController(Scanner keyIn,List<Student> students) {
-        this.keyIn=keyIn;//keyin을 꼭써야하니까 생성자로 따로만들어서 강요를하는거임
+    public StudentController(List<Student> students) {
         this.students=students;
         init();
     }
     
-    public void serviceStudentMenu() {
+    public void service(Scanner keyIn) {
 
         while (true) {
             System.out.print("학생관리> ");
@@ -26,11 +24,11 @@ public class StudentController {
             if (command.equals("list")) {
                 printStudents();
             } else if (command.equals("add")) {
-                inputStudents();
+                inputStudents(keyIn);
             } else if (command.equals("delete")) {
-                deleteStudent();
+                deleteStudent(keyIn);
             } else if (command.equals("detail")) {
-                detailStudent();
+                detailStudent(keyIn);
             } else if (command.equals("quit")) {
                 break;
             } else {
@@ -56,7 +54,7 @@ public class StudentController {
 
     }
 
-    private void inputStudents() {
+    private void inputStudents(Scanner keyIn) {
         while (true) {
             Student m = new Student();
 
@@ -89,7 +87,7 @@ public class StudentController {
 
     }
 
-    private void deleteStudent() {
+    private void deleteStudent(Scanner keyIn) {
         System.out.println("삭제할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 
@@ -101,7 +99,7 @@ public class StudentController {
         students.remove(no);
     }
 
-    private void detailStudent() {
+    private void detailStudent(Scanner keyIn) {
         System.out.println("조회할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 

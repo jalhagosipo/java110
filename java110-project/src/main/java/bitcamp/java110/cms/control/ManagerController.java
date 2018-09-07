@@ -4,17 +4,15 @@ import java.util.Scanner;
 
 import bitcamp.java110.cms.domain.Manager;
 
-public class ManagerController {
+public class ManagerController implements Controller{
 
     private List<Manager> managers;
-    public Scanner keyIn;
    
-    public ManagerController(Scanner keyIn, List<Manager> managers) {
-        this.keyIn=keyIn;
+    public ManagerController(List<Manager> managers) {
         this.managers = managers;
     }
     
-    public void serviceManagerMenu() {
+    public void service(Scanner keyIn) {
 
         while (true) {
             System.out.print("매니저 관리> ");
@@ -22,11 +20,11 @@ public class ManagerController {
             if (command.equals("list")) {
                 printManagers();
             } else if (command.equals("add")) {
-                inputManagers();
+                inputManagers(keyIn);
             } else if (command.equals("delete")) {
-                deleteManager();
+                deleteManager(keyIn);
             } else if (command.equals("detail")) {
-                detailManager();
+                detailManager(keyIn);
             } else if (command.equals("quit")) {
                 break;
             } else {
@@ -52,7 +50,7 @@ public class ManagerController {
     }
     
     
-    private void deleteManager() {
+    private void deleteManager(Scanner keyIn) {
         System.out.println("삭제할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 
@@ -67,7 +65,7 @@ public class ManagerController {
         System.out.println("삭제하였습니다.");
     }
 
-    private void detailManager() {
+    private void detailManager(Scanner keyIn) {
         System.out.println("조회할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
 
@@ -84,7 +82,7 @@ public class ManagerController {
         System.out.printf("전화: %s\n",manager.getTel());
         System.out.printf("직위: %s\n",manager.getPosition());
     }
-    private void inputManagers() {
+    private void inputManagers(Scanner keyIn) {
         while (true) {
             Manager m = new Manager();
 
