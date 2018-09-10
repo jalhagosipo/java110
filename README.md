@@ -2,12 +2,16 @@
 
 비트캠프 **자바 110기** 실습 프로젝트
 
+## java110-project (tag: v1.6)
+
+- Command 디자인 패턴 적용
+- 컨트롤러 구조 변경
+
 ## java110-project (tag: v1.5)
 
 - 리플렉션 API 활용 II
 - 애노테이션 활용
 - 미니 IoC 컨테이너 개선
-
 
 ## java110-project (tag: v1.4)
 
