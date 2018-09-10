@@ -3,16 +3,16 @@ package bitcamp.java110.cms.control;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.annotation.Component;
+import bitcamp.java110.cms.annotation.RequestMapping;
 
-//ì¼ë°˜ì£¼ì„!
-//@Component(value="4")
-@Component("4")
-public class HelloController implements Controller{
+@Component("hello")
+public class HelloController {
 
-    @Override
-    public void service(Scanner keyIn) {
+    @RequestMapping
+    public void hello(Scanner keyIn) {
+        System.out.println("ì•ˆë…•í•˜ì„¸ìš”!!!");
         
-        System.out.println("?•ˆ?…•?•˜?„¸?š”");
     }
+
 
 }

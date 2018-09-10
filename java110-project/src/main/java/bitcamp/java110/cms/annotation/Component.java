@@ -3,16 +3,29 @@ package bitcamp.java110.cms.annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-/* ?• ?…Έ?…?΄?… ? μ§?? •μ±?
- * CLASS   : μ»΄ν?Ό ?• ?›„?—?„ .class??Ό?— ?‚¨κ²¨λ‘”?‹¤. ?‹¤?–‰?•  ?•?” μ°Έμ΅°?•  ? ?—†?‹¤.
- *           Reflection APIλ΅? ?΄??¤?—?„ ?• ?…Έ?…?΄?… ? •λ³΄λ?? μ¶”μ¶?•  ? ?—†?‹¤.
- *           ?• ?…Έ?…?΄?… ? μ§? ? •μ±…μ„ μ§?? •?•μ§? ?•?Όλ©? CLASSκ°? κΈ°λ³Έκ°’μ΄?‹¤.
- * SOURCE  : μ»΄ν?Ό ?•  ?• ? κ±°λ?‹¤. μ¦?, .class ??Ό?— ?‚¨κ²¨λ‘μ§? ?•?”?‹¤.
- * RUNTIME : μ»΄ν?Ό ?• ?›„?—?„ .class??Ό?— ?‚¨κ²¨λ‘”?‹¤. ?‹¤?–‰?•  ?•?„ μ°Έμ΅°?•  ? ??‹¤.
- *           Reflection APIλ΅? ?΄??¤?—?„ ?• ?…Έ?…?΄?… ? •λ³΄λ?? μ¶”μ¶?•  ? ??‹¤.
+/* μ• λ…Έν…μ΄μ… μ μ§€ μ •μ±…
+ * CLASS    : μ»΄νμΌ ν• ν›„μ—λ„ .class νμΌμ— λ‚¨κ²¨ λ‘”λ‹¤. λ‹¨, μ‹¤ν–‰ν•  λ•λ” μ°Έμ΅°ν•  μ μ—†λ‹¤.
+ *            Reflection APIλ΅ ν΄λμ¤ νμΌμ—μ„ μ• λ…Έν…μ΄μ… μ •λ³΄λ¥Ό μ¶”μ¶ ν•  μ μ—†λ‹¤.
+ *            μ• λ…Έν…μ΄μ… μ μ§€ μ •μ±…μ„ μ§€μ •ν•μ§€ μ•μΌλ©΄ CLASS κ°€ κΈ°λ³Έ κ°’μ΄λ‹¤.
+ * SOURCE   : μ»΄νμΌ ν•  λ• μ κ±°λλ‹¤. μ¦‰ .class νμΌμ— λ‚¨κ²¨ λ‘μ§€ μ•λ”λ‹¤.
+ * RUNTIME  : μ»΄νμΌ ν• ν›„μ—λ„ .class νμΌμ— λ‚¨κ²¨ λ‘”λ‹¤. μ‹¤ν–‰ν•  λ•λ„ μ°Έμ΅°ν•  μ μλ‹¤.
+ *            Reflection APIλ΅ ν΄λμ¤μ—μ„ μ• λ…Έν…μ΄μ… μ •λ³΄λ¥Ό μ¶”μ¶ν•  μ μλ‹¤.
  */
-@Retention(RetentionPolicy.RUNTIME)// μ»΄ν?Ό ?•?›„ .class??Ό?— ?‚¨κ²¨λ‘”?‹¤.?•κ°κ°’?΄?Όλ©? value=?„ ?•?¨?„??‹¤.
-public @interface Component {
 
+@Retention(RetentionPolicy.RUNTIME) 
+public @interface Component {
     String value() default "";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
