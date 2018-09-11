@@ -1,46 +1,16 @@
 package bitcamp.java110.cms.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import bitcamp.java110.cms.annotation.Component;
 import bitcamp.java110.cms.domain.Student;
 
-@Component
-public class StudentDao {
+public interface StudentDao {
 
-    private List<Student> list = new ArrayList<>();
+    int insert(Student student);
+
+    List<Student> findByAll();
+
+    Student findByEmail(String email);
     
-    public int insert(Student student) {
-        for(Student item:list) {
-            if(item.getEmail().equals(student.getEmail())) {
-                return 0;
-            }
-        }
-        list.add(student);
-        return 1;
-    }
-
-    public List<Student> findByAll() {
-       return list;
-    }
-
-    public Student findByEmail(String email) {
-        for(Student item:list) {
-            if(item.getEmail().equals(email)) {
-                return item;
-            }
-        }
-        return null;
-    }
-    
-    public int delete(String email) {
-        for(Student item:list) {
-            if(item.getEmail().equals(email)) {
-                list.remove(item);
-                return 1;
-            }
-        }
-        return 0;
-    }
+    int delete(String email);
 }
