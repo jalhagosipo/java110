@@ -4,8 +4,11 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 
 import bitcamp.java110.cms.annotation.Autowired;
+import bitcamp.java110.cms.annotation.Component;
 
-public class AutowiredAnnotationBeanPostProcessor{
+@Component//이걸붙이는순간 new라고안해도 자동객체생성된거
+public class AutowiredAnnotationBeanPostProcessor
+        implements BeanPostProcessor{
 
     ApplicationContext beanContainer;
 
