@@ -9,33 +9,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bitcamp.java110.cms.annotation.Component;
-import bitcamp.java110.cms.domain.Student;
+import bitcamp.java110.cms.domain.Teacher;
 
 @Component
-public class StudentFileDao implements StudentDao{
+public class TeacherFileDao implements TeacherDao{
 
-    private List<Student> list = new ArrayList<>();
+    private List<Teacher> list = new ArrayList<>();
 
-    public StudentFileDao() {
-        File dataFile = new File("data/student.dat");
+    public TeacherFileDao() {
+        File dataFile = new File("data/teacher.dat");
         try(
                 BufferedReader in =
                 new BufferedReader(new FileReader(dataFile))
-                // 오로지 close있는애들만여기선언할수있다.(..인터페이스AutoCloseable구현한애들) 그럼 따로 finally해서 close안해도됨.
         ){
             while(true) {
                 String line = in.readLine();
                 if(line == null)break;
                 String[] values = line.split(",");
                 
-                Student s = new Student();
+                Teacher s = new Teacher();
                 s.setName(values[0]);
                 s.setEmail(values[1]);
                 s.setPassword(values[2]);
-                s.setSchool(values[3]);
-                s.setWorking(Boolean.parseBoolean(values[4]));
-                s.setTel(values[5]);
-
+                s.setTel(values[3]);
+                s.setPay(Integer.parseInt(values[4]));
+                s.setSubjects(values[5]);
+               
                 list.add(s);
                
             }
@@ -46,19 +45,19 @@ public class StudentFileDao implements StudentDao{
     }
 
     private void save() {
-        File dataFile = new File("data/student.dat");
+        File dataFile = new File("data/teacher.dat");
         try(
                 BufferedWriter out =
                 new BufferedWriter(new FileWriter(dataFile))
         ){
-            for(Student s:list) {
-                out.write(String.format("%s,%s,%s,%s,%b,%s\n"
-                        , s.getName()
-                        , s.getEmail()
-                        , s.getPassword()
-                        , s.getSchool()
-                        , s.isWorking()
-                        , s.getTel()));
+            for (Teacher s:list) {
+                out.write(String.format("%s,%s,%s,%s,%d,[%s]\n",
+                        s.getName(), 
+                        s.getEmail(), 
+                        s.getPassword(), 
+                        s.getTel(),
+                        s.getPay(),
+                        s.getSubjects()));
             }
             out.flush();
         }catch(Exception e) {
@@ -66,32 +65,32 @@ public class StudentFileDao implements StudentDao{
         }
     }
     
-    public int insert(Student student) {
-        for(Student item:list) {
-            if(item.getEmail().equals(student.getEmail())) {
+    public int insert(Teacher teacher) {
+        for(Teacher item:list) {
+            if(item.getEmail().equals(teacher.getEmail())) {
                 return 0;
             }
         }
-        list.add(student);
+        list.add(teacher);
         save();
         return 1;
     }
 
-    public List<Student> findByAll() {
-        return list;
+    public List<Teacher> findByAll() {
+       return list;
     }
 
-    public Student findByEmail(String email) {
-        for(Student item:list) {
+    public Teacher findByEmail(String email) {
+        for(Teacher item:list) {
             if(item.getEmail().equals(email)) {
                 return item;
             }
         }
         return null;
     }
-
+    
     public int delete(String email) {
-        for(Student item:list) {
+        for(Teacher item:list) {
             if(item.getEmail().equals(email)) {
                 list.remove(item);
                 return 1;
