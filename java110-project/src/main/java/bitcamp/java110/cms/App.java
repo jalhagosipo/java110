@@ -1,30 +1,18 @@
 package bitcamp.java110.cms;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.context.ApplicationContext;
 import bitcamp.java110.cms.context.RequestMappingHandlerMapping;
 import bitcamp.java110.cms.context.RequestMappingHandlerMapping.RequestMappingHandler;
-import bitcamp.java110.cms.dao.ManagerDao;
-import bitcamp.java110.cms.dao.StudentDao;
-import bitcamp.java110.cms.dao.TeacherDao;
-import bitcamp.java110.cms.domain.Manager;
-import bitcamp.java110.cms.domain.Teacher;
 
 public class App {
-    
-    public static StudentDao studentDao = new StudentDao();
-    public static TeacherDao teacherDao = new TeacherDao();
-    public static ManagerDao managerDao = new ManagerDao();
-    public static ArrayList<Manager> managers = new ArrayList<>();
-    public static ArrayList<Teacher> teachers = new ArrayList<>();
     
     static Scanner keyIn = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
         
         ApplicationContext iocContainer = 
-                new ApplicationContext("bitcamp.java110.cms.control");
+                new ApplicationContext("bitcamp.java110.cms");
         
         RequestMappingHandlerMapping requestHandlerMap = 
                 new RequestMappingHandlerMapping();
