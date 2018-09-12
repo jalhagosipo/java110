@@ -32,6 +32,7 @@ public class ManagerFile2Dao implements ManagerDao {
             BufferedInputStream in1 = new BufferedInputStream(in0);
             ObjectInputStream in = new ObjectInputStream(in1);
         ){
+          //리턴값이 아닌 예외로 우리에게 알려준다.호출자에게 자세하게 알릴필요가있다면 예외를활용해 호출자에게 알리는방식을 사용할수있다.
             list = (List<Manager>)in.readObject();
 //            while (true) {
 //                try {
@@ -68,9 +69,20 @@ public class ManagerFile2Dao implements ManagerDao {
     }
     
     public int insert(Manager manager) {
+        
+        // 필수 입력 항목이 비었을 때,  
+        if(manager.getName().length()==0||
+           manager.getEmail().length()==0||
+           manager.getPassword().length()==0) {
+            
+            // => 예외처리 문법이 없던 시절에는 리턴 값으로 예외 상황을 호출자에게 알렸다.
+           return -1;
+        }
         for (Manager item : list) {
             if (item.getEmail().equals(manager.getEmail())) {
-                return 0;
+                // 같은 이메일의 매니저가 있을 경우,
+                // => 예외처리 문법이 없던 시절에는 리턴 값으로 예외 상황을 호출자에게 알렸다. 
+                return -2;
             }
         }
         list.add(manager);
@@ -78,7 +90,7 @@ public class ManagerFile2Dao implements ManagerDao {
         return 1;
     }
     
-    public List<Manager> findByAll() {
+    public List<Manager> findAll() {
         return list;
     }
     

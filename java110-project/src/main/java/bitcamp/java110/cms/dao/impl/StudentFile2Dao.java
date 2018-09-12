@@ -48,7 +48,7 @@ public class StudentFile2Dao implements StudentDao{
     private void save() {
         File dataFile = new File(filename);
         try(
-                FileOutputStream out0 = new FileOutputStream(dataFile); // decoratorì•„ë‹˜.(concrete)
+                FileOutputStream out0 = new FileOutputStream(dataFile); // decorator?•„?‹˜.(concrete)
                 BufferedOutputStream out1 = new BufferedOutputStream(out0); // decorator
                 ObjectOutputStream out = new ObjectOutputStream(out1); // decorator
         ){

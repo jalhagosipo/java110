@@ -73,7 +73,7 @@ public class ManagerFileDao implements ManagerDao{
         return 1;
     }
 
-    public List<Manager> findByAll() {
+    public List<Manager> findAll() {
        return list;
     }
 
