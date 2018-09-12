@@ -2,6 +2,11 @@
 
 비트캠프 **자바 110기** 실습 프로젝트
 
+
+## java110-project (tag: v2.2)
+
+- 예외처리 적용
+
 ## java110-project (tag: v2.1)
 
 - 객체 Serialize/Deserialize 적용
