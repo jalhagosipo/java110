@@ -1,5 +1,9 @@
 # java110-project
 
+## v2.3
+
+- DAO에 JDBC 적용
+
 ## v2.2
 
 - 예외처리 적용
