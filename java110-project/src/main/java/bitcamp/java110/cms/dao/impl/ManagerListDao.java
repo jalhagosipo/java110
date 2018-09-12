@@ -1,32 +1,32 @@
-package bitcamp.java110.cms.dao;
+package bitcamp.java110.cms.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import bitcamp.java110.cms.annotation.Component;
-import bitcamp.java110.cms.domain.Student;
+import bitcamp.java110.cms.domain.Manager;
 
 //@Component
-public class StudentListDao implements StudentDao{
+public class ManagerListDao {
 
-    private List<Student> list = new ArrayList<>();
+    private List<Manager> list = new ArrayList<>();
     
-    public int insert(Student student) {
-        for(Student item:list) {
-            if(item.getEmail().equals(student.getEmail())) {
+    public int insert(Manager manager) {
+        for(Manager item:list) {
+            if(item.getEmail().equals(manager.getEmail())) {
                 return 0;
             }
         }
-        list.add(student);
+        list.add(manager);
         return 1;
     }
 
-    public List<Student> findByAll() {
+    public List<Manager> findByAll() {
        return list;
     }
 
-    public Student findByEmail(String email) {
-        for(Student item:list) {
+    public Manager findByEmail(String email) {
+        for(Manager item:list) {
             if(item.getEmail().equals(email)) {
                 return item;
             }
@@ -35,7 +35,7 @@ public class StudentListDao implements StudentDao{
     }
     
     public int delete(String email) {
-        for(Student item:list) {
+        for(Manager item:list) {
             if(item.getEmail().equals(email)) {
                 list.remove(item);
                 return 1;
