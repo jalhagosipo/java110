@@ -51,7 +51,6 @@ public class App {
         keyIn.close();
     }
 
-
     private static String prompt() {
         System.out.print("메뉴> ");
         return keyIn.nextLine();
