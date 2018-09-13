@@ -250,7 +250,7 @@ public class ManagerJdbcDao implements ManagerDao{
 
             if(count == 0)return 0;
 
-            String sql2 = "delete from p1_memb where mrno="+no;
+            String sql2 = "delete from p1_memb where mno="+no;
             stmt.executeUpdate(sql2);
             con.commit();
 
