@@ -21,6 +21,7 @@ public class ManagerListController {
 
     @RequestMapping("manager/list")
     public void list(Scanner keyIn) {
+        
         List<Manager> list = managerDao.findAll();
 
         for (Manager s:list) {

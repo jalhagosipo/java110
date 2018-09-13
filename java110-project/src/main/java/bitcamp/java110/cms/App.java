@@ -20,6 +20,11 @@ public class App {
         //=>IOC 컨테이너에 보관된 객체의 이름 목록을 가져온다.
         String[] names = iocContainer.getBeanDefinitionNames();
         for(String name:names) {
+            
+            
+            
+            
+            
             //=>이름으로 객체를 꺼낸다.
             Object obj = iocContainer.getBean(name);
             

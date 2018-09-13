@@ -76,7 +76,7 @@ public class TeacherFileDao implements TeacherDao{
         return 1;
     }
 
-    public List<Teacher> findByAll() {
+    public List<Teacher> findAll() {
        return list;
     }
 

@@ -21,7 +21,7 @@ public class StudentListDao implements StudentDao{
         return 1;
     }
 
-    public List<Student> findByAll() {
+    public List<Student> findAll() {
        return list;
     }
 

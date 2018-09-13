@@ -21,10 +21,11 @@ public class StudentListController {
 
     @RequestMapping("student/list")
     public void list(Scanner keyIn) {
-        List<Student> list = studentDao.findByAll();
+        List<Student> list = studentDao.findAll();
         
         for (Student s:list) {
-            System.out.printf("%s, %s, %s, %s, %b, %s\n",
+            System.out.printf("%d, %s, %s, %s, %s, %b, %s\n",
+                    s.getNo(),
                     s.getName(), 
                     s.getEmail(), 
                     s.getPassword(), 
