@@ -1,5 +1,9 @@
 # java110-project
 
+## v2.4
+
+- Client/Server 구조로 변경
+
 ## v2.3
 
 - DAO에 JDBC 적용
