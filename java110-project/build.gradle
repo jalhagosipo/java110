@@ -3,7 +3,15 @@ plugins {
     id 'application'
     id 'eclipse'
 }
-mainClassName = 'App'
+
+// 자바 컴파일할때 소스파일의 인코딩은 utf8이고 컴파일할때 1.8까지는 문법ok하라는거임.1.9~면 에러떠.
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+mainClassName = 'bitcamp.java110.cms.App'
 
 //프로젝트에서 사용할 라이브러리 설정
 // => 라이브러리 정보는 mvnrepository.com에서 검색하여 가져온다.
