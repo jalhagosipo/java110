@@ -2,9 +2,7 @@ package bitcamp.java110.cms.domain;
 
 import java.io.Serializable;
 
-public class Member implements Serializable{// 인터페이스는 상위클래스에 해두면 하위는 자동으로 됨.
-    // 여러 속성의 값을 관리하기 쉽도록 사용자 정의 데이터 타입을 만들어 사용한다.
-
+public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
     
     protected int no;
@@ -15,36 +13,25 @@ public class Member implements Serializable{// 인터페이스는 상위클래�
     public int getNo() {
         return no;
     }
-
     public void setNo(int no) {
         this.no = no;
     }
-
-    // 인스턴스의 메모리를 다루는 operator=setter/getter=accessor=propterty=message
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
 }

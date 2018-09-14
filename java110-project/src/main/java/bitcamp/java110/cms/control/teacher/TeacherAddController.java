@@ -41,7 +41,11 @@ public class TeacherAddController {
             System.out.print("강의과목?(예: 자바,C,C++) ");
             m.setSubjects(keyIn.nextLine());
             
-            teacherDao.insert(m);
+            if (teacherDao.insert(m) > 0) {
+                System.out.println("저장하였습니다.");
+            } else {
+                System.out.println("같은 이메일의 강사가 존재합니다.");
+            }
             
             System.out.print("계속 하시겠습니까?(Y/n) ");
             String answer = keyIn.nextLine();
@@ -49,5 +53,4 @@ public class TeacherAddController {
                 break;
         }
     }
-   
 }

@@ -17,18 +17,13 @@ public class App {
         RequestMappingHandlerMapping requestHandlerMap = 
                 new RequestMappingHandlerMapping();
         
-        //=>IOC 컨테이너에 보관된 객체의 이름 목록을 가져온다.
+        // => IoC 컨테이너에 보관된 객체의 이름 목록을 가져온다.
         String[] names = iocContainer.getBeanDefinitionNames();
-        for(String name:names) {
-            
-            
-            
-            
-            
-            //=>이름으로 객체를 꺼낸다.
+        for (String name : names) {
+            // => 이름으로 객체를 꺼낸다.
             Object obj = iocContainer.getBean(name);
             
-            //=>객체에서 @RequestMapping이 붙은 메서드를 찾아 저장한다.
+            // => 객체에서 @RequestMapping이 붙은 메서드를 찾아 저장한다.
             requestHandlerMap.addMapping(obj);
         }
         
@@ -46,10 +41,10 @@ public class App {
             }
             
             try {
-            mapping.getMethod().invoke(mapping.getInstance(), keyIn);
-            }catch(Exception e) {
+                mapping.getMethod().invoke(mapping.getInstance(), keyIn);
+            } catch (Exception e) {
                 System.out.println("실행 오류!");
-                System.out.println("=>"+e.getCause());
+                System.out.println(e.getCause());
             }
         }
         
@@ -61,3 +56,25 @@ public class App {
         return keyIn.nextLine();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

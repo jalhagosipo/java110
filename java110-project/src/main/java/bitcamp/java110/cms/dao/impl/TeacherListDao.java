@@ -3,30 +3,30 @@ package bitcamp.java110.cms.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Teacher;
 
 //@Component
-public class TeacherListDao {
-
+public class TeacherListDao implements TeacherDao {
     private List<Teacher> list = new ArrayList<>();
     
     public int insert(Teacher teacher) {
-        for(Teacher item:list) {
-            if(item.getEmail().equals(teacher.getEmail())) {
+        for (Teacher item : list) {
+            if (item.getEmail().equals(teacher.getEmail())) {
                 return 0;
             }
         }
         list.add(teacher);
         return 1;
     }
-
-    public List<Teacher> findByAll() {
-       return list;
+    
+    public List<Teacher> findAll() {
+        return list;
     }
-
+    
     public Teacher findByEmail(String email) {
-        for(Teacher item:list) {
-            if(item.getEmail().equals(email)) {
+        for (Teacher item : list) {
+            if (item.getEmail().equals(email)) {
                 return item;
             }
         }
@@ -34,8 +34,8 @@ public class TeacherListDao {
     }
     
     public int delete(String email) {
-        for(Teacher item:list) {
-            if(item.getEmail().equals(email)) {
+        for (Teacher item : list) {
+            if (item.getEmail().equals(email)) {
                 list.remove(item);
                 return 1;
             }

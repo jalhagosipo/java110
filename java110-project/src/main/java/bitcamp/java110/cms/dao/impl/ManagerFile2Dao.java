@@ -17,72 +17,70 @@ import bitcamp.java110.cms.domain.Manager;
 
 //@Component
 public class ManagerFile2Dao implements ManagerDao {
-
+    
     static String defaultFilename = "data/manager2.dat";
-
+    
     String filename;
     private List<Manager> list = new ArrayList<>();
-
+    
     @SuppressWarnings("unchecked")
     public ManagerFile2Dao(String filename) {
         this.filename = filename;
-
+        
         File dataFile = new File(filename);
         try (
-                FileInputStream in0 = new FileInputStream(dataFile);
-                BufferedInputStream in1 = new BufferedInputStream(in0);
-                ObjectInputStream in = new ObjectInputStream(in1);
-                ){
-            //리턴값이 아닌 예외로 우리에게 알려준다.호출자에게 자세하게 알릴필요가있다면 예외를활용해 호출자에게 알리는방식을 사용할수있다.
+            FileInputStream in0 = new FileInputStream(dataFile);
+            BufferedInputStream in1 = new BufferedInputStream(in0);
+            ObjectInputStream in = new ObjectInputStream(in1);
+        ){
             list = (List<Manager>)in.readObject();
-            //            while (true) {
-            //                try {
-            //                    Manager m = (Manager)in.readObject();
-            //                    list.add(m);
-            //                } catch (Exception e) {
-            //                    //e.printStackTrace();
-            //                    break;
-            //                }
-            //            }
+//            while (true) {
+//                try {
+//                    Manager m = (Manager)in.readObject();
+//                    list.add(m);
+//                } catch (Exception e) {
+//                    //e.printStackTrace();
+//                    break;
+//                }
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+    
     public ManagerFile2Dao() {
         this(defaultFilename);
     }
-
+    
     private void save() {
         File dataFile = new File(filename);
         try (
-                FileOutputStream out0 = new FileOutputStream(dataFile);
-                BufferedOutputStream out1 = new BufferedOutputStream(out0);
-                ObjectOutputStream out = new ObjectOutputStream(out1);
-                ){
+            FileOutputStream out0 = new FileOutputStream(dataFile);
+            BufferedOutputStream out1 = new BufferedOutputStream(out0);
+            ObjectOutputStream out = new ObjectOutputStream(out1);
+        ){
             out.writeObject(list);
-            //            for (Manager m : list) {
-            //                out.writeObject(m);
-            //            }
+//            for (Manager m : list) {
+//                out.writeObject(m);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+    
     public int insert(Manager manager) 
-            throws MandatoryValueDaoException,DuplicationDaoException{
-
-        // 필수 입력 항목이 비었을 때,  
-        if(manager.getName().length()==0||
-                manager.getEmail().length()==0||
-                manager.getPassword().length()==0) {
-
+            throws MandatoryValueDaoException, DuplicationDaoException {
+        // 필수 입력 항목이 비었을 때,
+        if (manager.getName().length() == 0 ||
+            manager.getEmail().length() == 0 ||
+            manager.getPassword().length() == 0) {
+            
             // 호출자에게 예외 정보를 만들어 던진다.
             throw new MandatoryValueDaoException();
         }
         for (Manager item : list) {
             if (item.getEmail().equals(manager.getEmail())) {
-
+                
                 // 호출자에게 예외 정보를 만들어 던진다.
                 throw new DuplicationDaoException();
             }
@@ -91,11 +89,11 @@ public class ManagerFile2Dao implements ManagerDao {
         save();
         return 1;
     }
-
+    
     public List<Manager> findAll() {
         return list;
     }
-
+    
     public Manager findByEmail(String email) {
         for (Manager item : list) {
             if (item.getEmail().equals(email)) {
@@ -104,7 +102,7 @@ public class ManagerFile2Dao implements ManagerDao {
         }
         return null;
     }
-
+    
     public int delete(String email) {
         for (Manager item : list) {
             if (item.getEmail().equals(email)) {
@@ -115,6 +113,4 @@ public class ManagerFile2Dao implements ManagerDao {
         save();
         return 0;
     }
-
-
 }
