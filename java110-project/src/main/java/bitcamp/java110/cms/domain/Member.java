@@ -5,11 +5,18 @@ import java.io.Serializable;
 public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
     
+    protected String tel;
     protected int no;
     protected String name;
     protected String email;
     protected String password;
     
+    public String getTel() {
+        return tel;
+    }
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
     public int getNo() {
         return no;
     }
