@@ -54,15 +54,40 @@ public class ServerApp {
         System.out.println("서버 실행 중...");
 
         while(true) {
+            Socket socket = serverSocket.accept();
+            RequestWorker worker = new RequestWorker(socket);
+            /*Thread t = new Thread(worker);
+            t.start();*/
+            new Thread(worker).start(); // 위두줄과같은코드
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        ServerApp serverApp = new ServerApp();
+        serverApp.service();
+    }
+    
+    class RequestWorker implements Runnable{
+
+        Socket socket;
+        
+        public RequestWorker(Socket socket) {
+            this.socket = socket;
+        }
+        
+        @Override
+        public void run() {
+            
+            // 이 메서드에 "main" 스레드에서 분리하여 독립적으로 수행할 코드를 둔다.
             try(
-                    Socket socket = serverSocket.accept();
+                    Socket socket = this.socket; // 이렇게 로컬변수로 따로만든이유는 try()에 값이 있어야지만 try를 벗어날때 자동으로 close를 호출하기때문임. 
                     PrintWriter out = new PrintWriter(
                             new BufferedOutputStream(
                                     socket.getOutputStream()));
                     BufferedReader in = new BufferedReader(
                             new InputStreamReader(
                                     socket.getInputStream())); 
-                    ){
+            ){
                 System.out.println(in.readLine());
                 out.println("OK:요");out.flush();
 
@@ -100,34 +125,10 @@ public class ServerApp {
                     out.println();
                     out.flush();
                 }
+                
+            }catch(Exception e) {
+                System.out.println(e.getMessage());
             }
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        ServerApp serverApp = new ServerApp();
-        serverApp.service();
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }// run()
+    }// RequestWorker class
+}// ServletApp class
