@@ -1,5 +1,18 @@
 # java110-project
 
+## v3.0
+
+- 웹브라우저를 클라이언트로 사용하기
+- 서버에 HTTP프로토콜을 처리하는 기능 추가
+- ServerApp 클래스를 HTTP 프로토콜 요청과 응답을 처리하는 방식으로 변경한다.
+
+## v2.9
+- Command 패턴으로 분할된 메서드를 한 클래스로 합치기
+- 관련된 컨트롤러 클래스를 한 클래스로 만든다.
+    - ManagerListController, ManagerAddController, ManagerDetailController, ManagerDeleteController 클래스를 ManagerController 클래스로 합친다.
+    - 학생 관리와 강사 관리도 마찬가지이다.
+    - 각각의 컨트롤러가 크지 않을 때는 관리하기 쉽게 한 클래스로 합치기도 한다.
+
 ## v2.8 (Stateless)
 
 - 멀티스레드 적용하기(Connection-Oriented에서 Stateless 방식으로 요청 처리)
