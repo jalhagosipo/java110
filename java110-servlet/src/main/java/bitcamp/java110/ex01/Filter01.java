@@ -15,7 +15,7 @@ import javax.servlet.annotation.WebFilter;
 
 // 필터를 만들었으면 어떤 요청에 대해 실행할 것인지 등록해야 한다.
 // URL은 반드시 "/"로 시작해야 한다.
-@WebFilter({"/ex01/*","/ex02/*"}) // 필터를 이렇게 넣어서 기능을 넣었다가 뺐다가 할수있다. chain of responsibility 패턴.
+//@WebFilter({"/ex01/*","/ex02/*"}) // 필터를 이렇게 넣어서 기능을 넣었다가 뺐다가 할수있다. chain of responsibility 패턴.
 // 메서드 앞뒤로 필터를 끼우는거 -> aspect oriented programming (aop)
 // aop = 기능을 핵심 비지니스 로직과 공통모듈로 구분하고, 핵심 로직에 영향을 미치지않고 사이사이에 공통모듈을 효과적으로 잘 끼워넣도록하는 개발방법.
 // 공통모듈(보안인증,로깅 같은 요소등)을 만든 후에 코드밖에서 이 모듈을 비지니스로직에 삽입하는것이 바로 aop적인 개발.코드밖에서 설정된다는것이핵심
