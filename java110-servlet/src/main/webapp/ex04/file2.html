@@ -5,16 +5,16 @@
 <title>멀티파트 요청</title>
 </head>
 <body>
-<h1>POST 요청 보내기 - 멀티파트</h1>
+<h1>POST 요청 보내기 - 멀티파트 II</h1>
 <!-- 
 파일을 업로드 하려면 파일 전송 방식(데이터 인코딩 방식)을
 멀티파트 형식으로 지정해야 한다.
-enctype 속성:
+ enctype 속성:
 => 기본 값은  application/x-www-form-urlencoded 이다.
 => 파일을 전송하려면 multipart/form-data 로 설정해야 한다.
-멀티파트로 전송하려면 반드시 "post" 방식이어야 한다.
+ 멀티파트로 전송하려면 반드시 "post" 방식이어야 한다.
  -->
-<form action="servlet03" 
+<form action="servlet04" 
       method="post" 
       enctype="multipart/form-data">
       
@@ -28,7 +28,6 @@ enctype 속성:
 사진2: <input type="file" name="file2"><br>
 <input type="submit" value="보내기">
 <input type="reset" value="취소">
-
-</form>
+ </form>
 </body>
 </html>
