@@ -35,31 +35,37 @@ public class StudentAddController  extends HttpServlet{
         m.setWorking(Boolean.parseBoolean(request.getParameter("working")));
         m.setTel(request.getParameter("tel"));
 
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
         StudentDao studentDao = (StudentDao)this.getServletContext()
                 .getAttribute("studentDao");
 
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<meta charset='UTF-8'>");
-        out.println("<title>학생 관리</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>학생 등록 결과</h1>");
-
-
         try {
+            
             studentDao.insert(m);
-            out.println("<p>저장하였습니다.</p>");
+            response.sendRedirect("list");
+            
         }catch(Exception e) {
             e.printStackTrace();
-            out.println("<p>등록 중 오류 발생!</p>");
+            // 등록 결과를 출력하고 1초가 경과한 후에 목록 페이지를 요청하도록 
+            // "리프래시" 명령을 설정한다.
+            // => 응답할 때 응답 헤더로 웹 브라우저에게 알린다.
+            response.setHeader("Refresh", "3;url=list");
+            
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta charset='UTF-8'>");
+            out.println("<title>학생 관리</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>학생 등록 오류!</h1>");
+            out.printf("<p>%s</p>\n", e.getMessage());
+            out.println("<p>잠시 기다리면 목록 페이지로 자동으로 이동합니다.</p>");
+            out.println("</body>");
+            out.println("</html>");
         }
 
-        out.println("</body>");
-        out.println("</html>");
     }
 }
