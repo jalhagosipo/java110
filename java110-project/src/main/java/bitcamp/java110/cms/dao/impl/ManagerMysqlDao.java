@@ -82,6 +82,7 @@ public class ManagerMysqlDao implements ManagerDao {
                             " m.mno," +
                             " m.name," + 
                             " m.email," + 
+                            " m.tel," + 
                             " mr.posi" + 
                             " from p1_mgr mr" + 
                     " inner join p1_memb m on mr.mrno = m.mno");
@@ -267,29 +268,49 @@ public class ManagerMysqlDao implements ManagerDao {
         }
     }
     
-/*  커넥션을 매번연결할시 162걸림.findall2는 15걸림.열배나차이남.커넥션풀이좋은이유를 알수있음.  
- *  public static void main(String[] args) {
-        ManagerMysqlDao dao = new ManagerMysqlDao();
+    @Override
+    public Manager findByEmailPassword(String email,String password) throws DaoException{
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
 
-        long start,end;
-        
-        start = System.currentTimeMillis();
-        for(int i=0;i<100;i++) {
-            dao.findAll();
+        try {
+            con = dataSource.getConnection();
+
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(
+                    "select" + 
+                            " m.mno," +
+                            " m.name," + 
+                            " m.email," + 
+                            " m.tel," + 
+                            " mr.posi" + 
+                            " from p1_mgr mr" + 
+                            " inner join p1_memb m on mr.mrno = m.mno" +
+                            " where m.email='" + email +
+                            "' and m.pwd = password('" + password + 
+                            "')" );
+
+            if (rs.next()) {
+                Manager mgr = new Manager();
+                mgr.setNo(rs.getInt("mno"));
+                mgr.setEmail(rs.getString("email"));
+                mgr.setName(rs.getString("name"));
+                mgr.setTel(rs.getString("tel"));
+                mgr.setPosition(rs.getString("posi"));
+
+                return mgr;
+            }
+            return null;
+
+        } catch (Exception e) {
+            throw new DaoException(e);
+
+        } finally {
+            try {rs.close();} catch (Exception e) {}
+            try {stmt.close();} catch (Exception e) {}
         }
-        end = System.currentTimeMillis();
-        
-        System.out.println(end-start);
-        
-        
-        start = System.currentTimeMillis();
-        for(int i=0;i<100;i++) {
-            dao.findAll2();
-        }
-        end = System.currentTimeMillis();
-        
-        System.out.println(end-start);
-    }*/
+    }
 }
 
 
