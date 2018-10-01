@@ -3,6 +3,7 @@ package bitcamp.java110.cms.servlet.student;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +37,7 @@ public class StudentDetailController  extends HttpServlet{
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
         out.println("<title>학생 관리</title>");
+        out.println("<link rel='stylesheet' href='../css/common.css'>");
         out.println("<style>");
         out.println("table,th,td{");
         out.println("   border:1px solid gray;");
@@ -43,6 +45,11 @@ public class StudentDetailController  extends HttpServlet{
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
+        
+        // 페이지 머리말 포함하기
+        RequestDispatcher rd = request.getRequestDispatcher("/header");
+        rd.include(request, response);
+        
         out.println("<h1>학생 상세정보</h1>");
         
         if (student == null) {
@@ -69,8 +76,12 @@ public class StudentDetailController  extends HttpServlet{
         out.printf("   location.href = 'delete?no=%d'\n",student.getNo()); 
         out.println("}");
         out.println("</script>");
-        
         out.println("</body>");
+        
+        // 페이지 꼬리말 포함하기
+        rd = request.getRequestDispatcher("/footer");
+        rd.include(request, response);
+        
         out.println("</html>");
     }
 }
