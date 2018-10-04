@@ -8,7 +8,9 @@
    - /webapp/mvc1/manager/list.jsp 생성
    - /webapp/mvc1/header.jsp 
    - /webapp/mvc1/footer.jsp 
-- MVC 
+- MVC type 2 작업
+   - /webapp/manager/list.jsp 생성
+   - ManagerListServlet 변경
 
 ## v4.8
 

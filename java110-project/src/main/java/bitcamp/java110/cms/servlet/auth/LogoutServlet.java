@@ -1,4 +1,4 @@
-package bitcamp.java110.cms.servlet;
+package bitcamp.java110.cms.servlet.auth;
 
 import java.io.IOException;
 

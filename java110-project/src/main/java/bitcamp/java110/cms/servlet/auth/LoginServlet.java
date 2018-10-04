@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet{
                 }
             }
         }
+        request.setAttribute("email", email);
         
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();

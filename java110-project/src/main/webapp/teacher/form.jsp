@@ -1,8 +1,13 @@
+<%@ page language="java" 
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>강사 관리</title>
+<link rel='stylesheet' href='../css/common.css'>
 <style>
 th{
     text-align: right;
@@ -10,7 +15,10 @@ th{
 </style>
 </head>
 <body>
-<h1>강사 등록</h1>
+
+<jsp:include page="../header.jsp" />
+
+<h1>강사 등록(MVC)</h1>
 
 <form action='add' method='post'> 
 <table>
@@ -46,6 +54,6 @@ th{
 </tbody>
 </table>
 </form>
-
+<jsp:include page="../footer.jsp" />
 </body>
 </html>
