@@ -12,6 +12,10 @@ dependencies {
     // File Upload 처리 라이브러리
     compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.3.3'
     
+    // JSTL 구현 라이브러리
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    
+    // Servlet API 라이브러리
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1' // 컴파일할때만사용되고 배치할때는제외함.이건 톰캣서버에이미있어서 이미있는곳에 또배치할필요가없으니까providedCompile를쓴것임. 
     compile 'com.google.guava:guava:23.0'
     testCompile 'junit:junit:4.12'
