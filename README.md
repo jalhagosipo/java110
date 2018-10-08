@@ -2,7 +2,11 @@
 
 비트캠프 **자바 110기** 실습 프로젝트
 
-## java110- (tag: v4.9)
+## java110-project (tag: v5.0)
+
+ - JSP 액션 태그 적용
+
+## java110-project (tag: v4.9)
 
  - JSP를 활용한 MVC 모델 1 타입 적용
 
