@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import bitcamp.java110.cms.dao.TeacherDao;
 
 @WebServlet("/teacher/delete")
-public class TeacherDeleteController  extends HttpServlet{
+public class TeacherDeleteServlet  extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 

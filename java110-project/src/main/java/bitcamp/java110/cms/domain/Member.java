@@ -10,7 +10,14 @@ public class Member implements Serializable {
     protected String name;
     protected String email;
     protected String password;
+    protected String photo;
     
+    public String getPhoto() {
+        return photo;
+    }
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
     public String getTel() {
         return tel;
     }

@@ -1,4 +1,4 @@
-package bitcamp.java110.cms.servlet.student;
+package bitcamp.java110.cms.servlet.teacher;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,28 +10,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bitcamp.java110.cms.dao.StudentDao;
-import bitcamp.java110.cms.domain.Student;
+import bitcamp.java110.cms.dao.TeacherDao;
+import bitcamp.java110.cms.domain.Teacher;
 
-@WebServlet("/student/list")
-public class StudentListController  extends HttpServlet{
+@WebServlet("/teacher/list")
+public class TeacherListServlet  extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
     @Override
     protected void doGet(HttpServletRequest request,HttpServletResponse response) 
             throws ServletException,IOException {
-
-        StudentDao studentDao = (StudentDao)this.getServletContext()
-                .getAttribute("studentDao");
         
-        List<Student> list = studentDao.findAll();
+        TeacherDao teacherDao = (TeacherDao)this.getServletContext()
+                .getAttribute("teacherDao");
+        
+        List<Teacher> list = teacherDao.findAll();
         
         request.setAttribute("list", list);
         
         response.setContentType("text/html;charset=UTF-8");
         
-        RequestDispatcher rd = request.getRequestDispatcher("/student/list.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/teacher/list.jsp");
         rd.include(request, response);
     }
 }

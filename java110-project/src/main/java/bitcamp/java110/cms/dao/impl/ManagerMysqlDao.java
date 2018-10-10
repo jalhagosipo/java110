@@ -1,3 +1,4 @@
+
 package bitcamp.java110.cms.dao.impl;
 
 import java.sql.Connection;
@@ -51,11 +52,18 @@ public class ManagerMysqlDao implements ManagerDao {
                     + "')";
             stmt.executeUpdate(sql2);
 
+            if(manager.getPhoto() != null) {
+            String sql3 = "insert into p1_memb_phot(mno,photo)"
+                    + " values("+memberNo
+                    + ",'"+ manager.getPhoto()
+                    +"')";
+            stmt.executeUpdate(sql3);
+            }
+            
             con.commit();
             return 1;
             
         } catch (Exception e) {
-            //원래 클로즈를하면 자동으로 롤백이됬었는데 이번엔 클로즈를 안하니까 명시해야하는 것임.
             try {con.rollback();} catch (SQLException e1) {}
             throw new DaoException(e);
 
@@ -105,56 +113,6 @@ public class ManagerMysqlDao implements ManagerDao {
         return list;
     }
 
-    /*Connection con;
-    {
-        try {
-        Class.forName("org.mariadb.jdbc.Driver");
-
-        con = DriverManager.getConnection(
-                "jdbc:mariadb://localhost:3306/studydb", 
-                "study", "1111");
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public List<Manager> findAll2() {
-
-        ArrayList<Manager> list = new ArrayList<>();
-
-        Statement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            stmt = con.createStatement();
-
-            rs = stmt.executeQuery(
-                    "select" + 
-                            " m.mno," +
-                            " m.name," + 
-                            " m.email," + 
-                            " mr.posi" + 
-                            " from p1_mgr mr" + 
-                    " inner join p1_memb m on mr.mrno = m.mno");
-
-            while (rs.next()) {
-                Manager mgr = new Manager();
-                mgr.setNo(rs.getInt("mno"));
-                mgr.setEmail(rs.getString("email"));
-                mgr.setName(rs.getString("name"));
-                mgr.setPosition(rs.getString("posi"));
-
-                list.add(mgr);
-            }
-        } catch (Exception e) {
-            throw new DaoException(e);
-        } finally {
-            try {rs.close();} catch (Exception e) {}
-            try {stmt.close();} catch (Exception e) {}
-        }
-        return list;
-    }*/
-
     public Manager findByEmail(String email)  throws DaoException{
         Connection con = null;
         Statement stmt = null;
@@ -170,9 +128,11 @@ public class ManagerMysqlDao implements ManagerDao {
                             " m.name," + 
                             " m.email," + 
                             " m.tel," + 
-                            " mr.posi" + 
+                            " mr.posi," + 
+                            " mp.photo" +
                             " from p1_mgr mr" + 
                             " inner join p1_memb m on mr.mrno = m.mno" +
+                            " left outer join p1_memb_phot mp on mr.mrno=mp.mno" +
                             " where m.email='" + email + "'");
 
             if (rs.next()) {
@@ -182,7 +142,7 @@ public class ManagerMysqlDao implements ManagerDao {
                 mgr.setName(rs.getString("name"));
                 mgr.setTel(rs.getString("tel"));
                 mgr.setPosition(rs.getString("posi"));
-
+                mgr.setPhoto(rs.getString("photo"));
                 return mgr;
             }
             return null;
@@ -211,9 +171,11 @@ public class ManagerMysqlDao implements ManagerDao {
                             " m.name," + 
                             " m.email," + 
                             " m.tel," + 
-                            " mr.posi" + 
+                            " mr.posi," + 
+                            " mp.photo" +
                             " from p1_mgr mr" + 
                             " inner join p1_memb m on mr.mrno = m.mno" +
+                            " left outer join p1_memb_phot mp on mr.mrno=mp.mno" +
                             " where m.mno=" + no);
 
             if (rs.next()) {
@@ -223,7 +185,7 @@ public class ManagerMysqlDao implements ManagerDao {
                 mgr.setName(rs.getString("name"));
                 mgr.setTel(rs.getString("tel"));
                 mgr.setPosition(rs.getString("posi"));
-
+                mgr.setPhoto(rs.getString("photo"));
                 return mgr;
             }
             return null;
@@ -253,6 +215,9 @@ public class ManagerMysqlDao implements ManagerDao {
             if (count == 0)
                 throw new Exception("일치하는 번호가 없습니다.");
 
+            sql = "delete from p1_memb_phot where mno="+no;
+            stmt.executeUpdate(sql);
+            
             String sql2 = "delete from p1_memb where mno=" + no;
             stmt.executeUpdate(sql2);
             con.commit();
@@ -312,12 +277,3 @@ public class ManagerMysqlDao implements ManagerDao {
         }
     }
 }
-
-
-
-
-
-
-
-
-

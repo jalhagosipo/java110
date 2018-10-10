@@ -1,4 +1,4 @@
-package bitcamp.java110.cms.servlet.teacher;
+package bitcamp.java110.cms.servlet.student;
 
 import java.io.IOException;
 
@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bitcamp.java110.cms.dao.TeacherDao;
-import bitcamp.java110.cms.domain.Teacher;
+import bitcamp.java110.cms.dao.StudentDao;
+import bitcamp.java110.cms.domain.Student;
 
-@WebServlet("/teacher/detail")
-public class TeacherDetailController  extends HttpServlet{
+@WebServlet("/student/detail")
+public class StudentDetailServlet  extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
@@ -23,16 +23,16 @@ public class TeacherDetailController  extends HttpServlet{
         
         int no = Integer.parseInt(request.getParameter("no"));
         
-        TeacherDao teacherDao = (TeacherDao)this.getServletContext()
-                .getAttribute("teacherDao");
-        
-        Teacher t = teacherDao.findByNo(no);
+        StudentDao studentDao = (StudentDao)this.getServletContext()
+                .getAttribute("studentDao");
 
-        request.setAttribute("teacher",t);
+        Student s = studentDao.findByNo(no);
+
+        request.setAttribute("student",s);
         
         response.setContentType("text/html;charset=UTF-8");
-        
-        RequestDispatcher rd = request.getRequestDispatcher("/teacher/detail.jsp");
+
+        RequestDispatcher rd = request.getRequestDispatcher("/student/detail.jsp");
         rd.include(request, response);
     }
 }
