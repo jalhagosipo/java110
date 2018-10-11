@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.domain.Manager;
+import bitcamp.java110.cms.service.ManagerService;
 
 @WebServlet("/manager/list") // servlet은 반드시 /로시작해야한다.
 public class ManagerListServlet extends HttpServlet{ 
@@ -23,10 +23,10 @@ public class ManagerListServlet extends HttpServlet{
             throws ServletException,IOException {
 
         // JSP가 사용할 데이터 준비
-        ManagerDao managerDao = (ManagerDao)this.getServletContext()
-                .getAttribute("managerDao");
+        ManagerService managerService = (ManagerService)this.getServletContext()
+                .getAttribute("managerService");
         
-        List<Manager> list = managerDao.findAll();
+        List<Manager> list = managerService.list();
         
         // JSP 사용할 수 있도록 ServletRequest 보관소에 저장한다.
         request.setAttribute("list", list);

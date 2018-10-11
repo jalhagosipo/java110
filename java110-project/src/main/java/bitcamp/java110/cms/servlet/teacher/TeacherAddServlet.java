@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Teacher;
+import bitcamp.java110.cms.service.TeacherService;
 
 @MultipartConfig(maxFileSize=2_000_000)// 사진크기 약 2메가가 넘어가지않도록함.
 @WebServlet("/teacher/add")
@@ -50,8 +50,8 @@ public class TeacherAddServlet  extends HttpServlet{
         m.setPay(Integer.parseInt(request.getParameter("pay")));
         m.setSubjects(request.getParameter("subjects"));
 
-        TeacherDao teacherDao = (TeacherDao)this.getServletContext()
-                .getAttribute("teacherDao");
+        TeacherService teacherService = (TeacherService)this.getServletContext()
+                .getAttribute("teacherService");
         
         try {
             // 사진 데이터 처리
@@ -63,7 +63,7 @@ public class TeacherAddServlet  extends HttpServlet{
                 m.setPhoto(filename);
             }
            
-            teacherDao.insert(m);
+            teacherService.add(m);
             response.sendRedirect("list");
             
         }catch(Exception e) {

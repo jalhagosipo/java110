@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.domain.Manager;
+import bitcamp.java110.cms.service.ManagerService;
 
 @MultipartConfig(maxFileSize=2_000_000)// 사진크기 약 2메가가 넘어가지않도록함.
 @WebServlet("/manager/add")
@@ -50,8 +50,8 @@ public class ManagerAddServlet extends HttpServlet{
         m.setTel(request.getParameter("tel"));
         m.setPosition(request.getParameter("position"));
         
-        ManagerDao managerDao = (ManagerDao)this.getServletContext()
-                .getAttribute("managerDao");
+        ManagerService managerService = (ManagerService)this.getServletContext()
+                .getAttribute("managerService");
         
         try {
             // 사진 데이터 처리
@@ -63,7 +63,7 @@ public class ManagerAddServlet extends HttpServlet{
                 m.setPhoto(filename);
             }
             
-            managerDao.insert(m);
+            managerService.add(m);
             
             // 오류없이 등록에 성공했으면,
             // 목록페이지를 다시 요청하라고 redirect 명령을 보낸다.
