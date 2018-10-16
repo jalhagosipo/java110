@@ -10,7 +10,7 @@
         <result column="email"  property="email"/>
         <result column="tel"    property="tel"/>
         <result column="schl"   property="school"/>
-        <result column="work"   property="working"/>
+        <result column="working"   property="working"/>
         <result column="photo"  property="photo"/>
     </resultMap>
     
@@ -21,7 +21,7 @@
             m.email, 
             m.tel,
             s.schl,
-            (s.work='Y') working,
+            (s.work = 'Y') working,  
             mp.photo
          from 
             p1_stud s
@@ -36,7 +36,7 @@
              m.email,
              m.tel, 
              s.schl,
-             (s.work='Y') working,
+             (s.work='Y') working
           from 
              p1_stud s
              inner join p1_memb m on s.sno = m.mno
