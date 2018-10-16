@@ -32,7 +32,7 @@ public class ManagerListServlet extends HttpServlet{
         }
         
         if(request.getParameter("pageSize") != null) {
-            pageNo = Integer.parseInt(request.getParameter("pageSize"));
+            pageSize = Integer.parseInt(request.getParameter("pageSize"));
             if(pageSize < 3 || pageSize > 10)
                 pageSize=3;
         }
