@@ -14,5 +14,5 @@
     - mybatis-config.xml(이름 변경 가능) 설정 파일에 붙여 넣는다.
 - Sql 맵퍼 파일 준비
     - 'Getting started' 문서를 참조하여 SQL 맵퍼 파일을 만든다.
-    - MemberDao.xml 파일 적용
+    - MemberDao.xml 파일 생성
 - Dao에 적용

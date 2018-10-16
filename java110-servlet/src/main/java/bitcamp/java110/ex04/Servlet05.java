@@ -38,7 +38,7 @@ public class Servlet05 extends GenericServlet {
         //    그런데 개발자는 필터에서 getParameter()를 호출한 줄도 모르고,
         //    "왜 안돼지?"라고 황당해하며 하루종일 쩐다!
         req.setCharacterEncoding("UTF-8");
-        
+
         int age = Integer.parseInt(
                 req.getParameter("age"));
         boolean working = Boolean.parseBoolean(

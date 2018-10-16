@@ -16,7 +16,7 @@ tasks.withType(JavaCompile) {
 dependencies {
     // Servlet API 라이브러리
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1' // 컴파일할때만사용되고 배치할때는제외함.이건 톰캣서버에이미있어서 이미있는곳에 또배치할필요가없으니까providedCompile를쓴것임. 
-
+    
     // Spring IoC 컨테이너 관련 라이브러리
     //compile group: 'org.springframework', name: 'spring-context', version: '5.0.9.RELEASE'
 

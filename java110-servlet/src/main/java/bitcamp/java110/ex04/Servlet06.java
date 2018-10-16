@@ -40,7 +40,7 @@ public class Servlet06 extends GenericServlet {
         
         // 다음은 POST 요청으로 들어온 한글 데이터를 처리할 때 사용하는 것이다.
         // GET 요청에 대해서는 setCharacterEncoding()이 효력이 없다.
-        //req.setCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("UTF-8");
         
         String name = req.getParameter("name");
         

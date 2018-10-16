@@ -57,7 +57,7 @@ public class MemberDao {
         
         SqlSession sqlSession =sqlSessionFactory.openSession();
         try {
-            return sqlSession.selectOne("memberdao.findByNo",no);
+            return sqlSession.selectOne("memberdao.findByNo",no); // mapper.id
         } finally {
             sqlSession.close();
         }

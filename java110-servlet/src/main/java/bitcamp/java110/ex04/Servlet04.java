@@ -13,7 +13,8 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
- // Servlet API 3.0 부터 제공하는 멀티파트 처리기를 이용하기
+
+// Servlet API 3.0 부터 제공하는 멀티파트 처리기를 이용하기
 // => 서블릿 선언부에 멀티파트 데이터를 처리함을 지정한다.
 @MultipartConfig(maxFileSize=10_000_000)
 @WebServlet("/ex04/servlet04")
