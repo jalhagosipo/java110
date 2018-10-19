@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+
 import bitcamp.java110.cms.service.ManagerService;
 
 
@@ -22,8 +24,12 @@ public class ManagerDeleteServlet extends HttpServlet{
         
         int no = Integer.parseInt(request.getParameter("no"));
         
-        ManagerService managerService = (ManagerService)this.getServletContext()
-                .getAttribute("managerService");
+        ApplicationContext iocContainer = 
+                (ApplicationContext)this.getServletContext()
+                                        .getAttribute("iocContainer");
+        
+        ManagerService managerService = 
+                iocContainer.getBean(ManagerService.class);
         
         try {
             managerService.delete(no);
