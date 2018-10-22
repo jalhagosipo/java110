@@ -1,6 +1,6 @@
 /* 서버측 객체 보관소
  * => 서블릿이나 필터, 리스너를 실행하는 중에 필요한 값들을 
- *    보관소에 저장하고 꺼내 쓸 수 이싿.
+ *    보관소에 저장하고 꺼내 쓸 수 있다.
  * => 보관소
  *    1) ServletContext 보관소
  *       - 생성시점 : 웹애플리케이션이 시작될 때 각 웹애플리케이션 마다 한 개의 보관소가 생성됨.
@@ -46,7 +46,7 @@ public class Servlet01 extends HttpServlet{
     public void service(HttpServletRequest req, HttpServletResponse res) 
             throws ServletException, IOException {
         
-        // ServletContext 보관소에 값 저장하기
+        // ServletRequest 보관소에 값 저장하기
         req.setAttribute("bbb","임꺽정");
 
         res.setContentType("text/plain;charset=UTF-8");

@@ -7,7 +7,7 @@
 <head>
 <meta charset='UTF-8'>
 <title>로그인</title>
-<link rel='stylesheet' href='../css/common.css'>
+<link rel='stylesheet' href='/css/common.css'>
 <style>
 th {
     text-align: right;
@@ -19,12 +19,6 @@ th {
 <jsp:include page="../header.jsp"></jsp:include>
 
 <h1>로그인</h1>
-
-<jsp:useBean
-    scope="request"
-    id="email"
-    class="java.lang.String"
-/>
 
 <form action='login' method='post'>
 <table>
@@ -59,3 +53,14 @@ th {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+    

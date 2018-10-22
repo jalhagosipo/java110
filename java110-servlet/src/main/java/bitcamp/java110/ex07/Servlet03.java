@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+// http://localhost:8888/ex07/servlet03?name=홍 하고 크롬에서치고
+// http://localhost:8888/ex07/servlet03?name=길 하고 ie에서 칠때
+// servlet04에서 크롬은 홍, ie에서는 길을 나타낸다. 클라이언트마다 세션을다르게 가지고있다는것을 알수있다. 
 @WebServlet("/ex07/servlet03")
 public class Servlet03 extends HttpServlet{ 
 
@@ -27,7 +30,7 @@ public class Servlet03 extends HttpServlet{
 
         // HttpSession 보관소 준비하기
         // => 각 클라이언트마다 별도의 HttpSession 객체가 생성된다.
-        // => 
+        // => 이미 HttpSession 객체가 생성되었으면 그 객체를 리턴한다.
         HttpSession session = req.getSession();
         
         // HttpSession 보관소에 값 저장하기

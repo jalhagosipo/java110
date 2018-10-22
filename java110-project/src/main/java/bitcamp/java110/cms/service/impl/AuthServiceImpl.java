@@ -12,30 +12,43 @@ import bitcamp.java110.cms.domain.Member;
 import bitcamp.java110.cms.service.AuthService;
 
 @Service
-public class AuthServiceImpl implements AuthService{
+public class AuthServiceImpl implements AuthService {
 
     @Autowired ManagerDao managerDao;
     @Autowired TeacherDao teacherDao;
     @Autowired StudentDao studentDao;
+  
 
     @Override
-    public Member getMember(String email, String password, String memberType) {
-
+    public Member getMember(
+            String email, String password, String memberType) {
+        
         HashMap<String,Object> params = new HashMap<>();
-        params.put("email",email);
-        params.put("password",password);
-
-        if(memberType.equals("manager")) {
+        params.put("email", email);
+        params.put("password", password);
+        
+        if (memberType.equals("manager")) {
             return managerDao.findByEmailPassword(params);
             
-        }else if(memberType.equals("student")) {
+        } else if (memberType.equals("student")) {
             return studentDao.findByEmailPassword(params);
             
-        }else if(memberType.equals("teacher")) {
+        } else if (memberType.equals("teacher")) {
             return teacherDao.findByEmailPassword(params);
             
         } else {
             return null;
         }
     }
+    
 }
+
+
+
+
+
+
+
+
+
+

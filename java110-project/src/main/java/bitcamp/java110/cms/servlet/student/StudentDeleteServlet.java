@@ -13,33 +13,35 @@ import org.springframework.context.ApplicationContext;
 import bitcamp.java110.cms.service.StudentService;
 
 @WebServlet("/student/delete")
-public class StudentDeleteServlet  extends HttpServlet{
-
+public class StudentDeleteServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+  
     @Override
-    protected void doGet(HttpServletRequest request,HttpServletResponse response) 
-            throws ServletException,IOException {
+    protected void doGet(
+            HttpServletRequest request, 
+            HttpServletResponse response) 
+            throws ServletException, IOException {
 
+        
         int no = Integer.parseInt(request.getParameter("no"));
-
+        
         ApplicationContext iocContainer = 
                 (ApplicationContext)this.getServletContext()
                                         .getAttribute("iocContainer");
-        
         StudentService studentService = 
-                    iocContainer.getBean(StudentService.class);
-
+                iocContainer.getBean(StudentService.class);
+        
         try {
             studentService.delete(no);
-            response.sendRedirect("list");
-        }catch(Exception e){
-            request.setAttribute("error",e);
+            request.setAttribute("viewUrl", "redirect:list");
+            
+        } catch (Exception e) {
+            request.setAttribute("error", e);
             request.setAttribute("message", "학생 삭제 오류!");
             request.setAttribute("refresh", "3;url=list");
-            
-            request.getRequestDispatcher("/error").forward(request, response);
+            request.setAttribute("viewUrl", "/error.jsp");
         }
         
     }
+
 }

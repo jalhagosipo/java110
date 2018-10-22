@@ -8,10 +8,20 @@
     <insert id="insert" parameterType="map">
         insert into p1_memb_phot(mno,photo) 
         values(#{no},#{photo})
-    </insert>
+    </insert> 
     
     <delete id="delete" parameterType="int">
         delete from p1_memb_phot 
         where mno=#{value}
     </delete>
+    
 </mapper>
+
+
+
+
+
+
+
+
+

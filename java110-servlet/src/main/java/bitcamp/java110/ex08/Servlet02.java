@@ -38,7 +38,7 @@ public class Servlet02 extends HttpServlet{
         out.println("</html>");
         
         // sendRedirect()를 호출하기 전에 버퍼의 내용을 웹브라우저로 출력한다면?
-        // => sendRedirect()는 무시된다.
+        // => sendRedirect()는 무시된다. 오류가떴어 (java.lang.IllegalStateException: Cannot call sendRedirect() after the response has been committed)
 //        out.flush();
         
         // 클라이언트에게 즉시 다음 URL로 요청하게 명령한다.

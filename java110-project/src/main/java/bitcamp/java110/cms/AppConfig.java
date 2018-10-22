@@ -16,19 +16,17 @@ import org.springframework.core.env.Environment;
 @ComponentScan(basePackages="bitcamp.java110.cms")
 @PropertySource("classpath:/bitcamp/java110/cms/conf/jdbc.properties")
 
-// Mybatis에서 자동으로 DAO를 생성할 때 사용할 인터페이스가 들어 있는 패키지 설정
+// Mybatis에서 자동으로 DAO를 생성할 때 사용할 인터페이스가 들어 있는 패키지 설정 
 @MapperScan("bitcamp.java110.cms.dao")
 public class AppConfig {
-
+    
     @Autowired
     Environment env;
     
     @Bean(destroyMethod="close")
     public DataSource dataSource() {
+        System.out.println("DataSource 객체 생성!");
         
-        
-        
-        System.out.println("DataSource 객체 생성");
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName(env.getProperty("jdbc.driver"));
         ds.setUrl(env.getProperty("jdbc.url"));
@@ -43,30 +41,30 @@ public class AppConfig {
     public SqlSessionFactory sqlSessionFactory(
             DataSource dataSource,
             ApplicationContext appCtx) {
-        System.out.println("SqlSessionFactory 객체 생성");
+        System.out.println("SqlSessionFactory 객체 생성!");
         
         try {
             SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
             
             // DB 커넥션풀을 관리해주는 객체를 꼽는다.
-            factory.setDataSource(dataSource());
+            factory.setDataSource(dataSource);
             
-            // SQL 맵퍼 파일에서 도메인 객체의 별명을 사용하려면
-            // 도메인 객체가 들어 있는 패키지를 지정해야 한다.
+            // SQL 맵퍼 파일에서 도메인 객체의 별명을 사용하려면 
+            // 도메인 객체가 들어 있는 패키지를 지정해야 한다. 
             // 그러면 Mybatis가 해당 패키지의 모든 클래스에 대해 별명을 자동으로 생성할 것이다.
             factory.setTypeAliasesPackage("bitcamp.java110.cms.domain");
             
             // SQL 맵퍼 파일 경로를 등록한다.
             factory.setMapperLocations(appCtx.getResources(
-                            "classpath:/bitcamp/java110/cms/mapper/**/*.xml"));//mapper의 하위폴더 다뒤져라 그중*.xml을 가져와라
+                    "classpath:/bitcamp/java110/cms/mapper/**/*.xml"));
             
             return factory.getObject();
-        }catch(Exception e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e); 
         }
     }
-    
-    /*
+
+/*
     public static void main(String[] args) {
         
         ApplicationContext iocContainer = 
@@ -100,3 +98,17 @@ public class AppConfig {
     } 
 */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

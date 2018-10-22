@@ -9,13 +9,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import bitcamp.java110.cms.AppConfig;
 
-public class ContextLoaderListener implements ServletContextListener{
-    
+public class ContextLoaderListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-
         System.out.println("ContextLoaderListener.contextInitialized() 실행!");
-
+        
         ServletContext sc = sce.getServletContext();
 
         try {
@@ -24,8 +22,15 @@ public class ContextLoaderListener implements ServletContextListener{
             
             sc.setAttribute("iocContainer", context);
             
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
+
+
+
+
+
+

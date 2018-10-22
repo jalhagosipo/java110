@@ -9,9 +9,20 @@
             useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
         insert into p1_memb(name,email,pwd,tel,cdt)
         values(#{name},#{email},password(#{password}),#{tel},now())
-    </insert>
+    </insert> 
     
     <delete id="delete" parameterType="int">
-        delete from p1_memb where mno=#{value}
+        delete from p1_memb 
+        where mno=#{value}
     </delete>
+    
 </mapper>
+
+
+
+
+
+
+
+
+

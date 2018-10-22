@@ -6,7 +6,7 @@ import java.util.Map;
 import bitcamp.java110.cms.domain.Manager;
 
 public interface ManagerDao {
-    int insert(Manager manager); 
+    int insert(Manager manager);
     List<Manager> findAll(Map<String,Object> params);
     Manager findByEmail(String email);
     Manager findByNo(int no);

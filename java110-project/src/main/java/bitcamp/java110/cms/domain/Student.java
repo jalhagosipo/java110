@@ -5,7 +5,7 @@ public class Student extends Member {
     
     protected String school;
     protected boolean working;
-
+    
     public String getSchool() {
         return school;
     }

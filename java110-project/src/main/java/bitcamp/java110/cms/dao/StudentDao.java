@@ -11,7 +11,7 @@ public interface StudentDao {
     Student findByEmail(String email);
     Student findByNo(int no);
     int delete(int no);
-    Student findByEmailPassword(Map<String,Object> params) ;
+    Student findByEmailPassword(Map<String,Object> params);
 }
 
 

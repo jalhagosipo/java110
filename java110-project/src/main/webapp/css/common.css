@@ -1,36 +1,59 @@
 @charset "UTF-8";
 
-header{
-	overflow: hidden;
-	padding:0px;
+header {
+    overflow: hidden;
+    padding: 0px;
 }
 
-header>h1{
-	margin:0px;
-	float:left;
-	background: url('http://bitcamp.co.kr/img/logo2.jpg') no-repeat -25px 50%;
-	background-size:contain;
-	height: 0;
-	padding-top: 40px;
-	overflow: hidden;
+header > h1 {
+    margin: 0px;
+    float: left;
+    background: url('http://bitcamp.co.kr/img/logo2.jpg') no-repeat -25px 50%;
+    background-size: contain; 
+    height: 0;
+    padding-top: 40px;
+    overflow: hidden;
 }
 
-header ul{
-	float:right;
+header ul {
+    float: right;
 }
 
-header li{
-    list-style-image: none;
-    display: inline-block;	
-    margin:0px 5px;
+header li {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 5px;
 }
 
-footer{
-	background-color: navy;
-	color:white;
+footer {
+    background-color: navy;
+    color: white;
 }
 
-footer>p{
-	padding:5px;
+footer > p {
+    padding: 10px;
 	text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

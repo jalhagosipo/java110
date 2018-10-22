@@ -7,20 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>매니저 관리</title>
-<link rel='stylesheet' href='../css/common.css'>
+<link rel='stylesheet' href='/css/common.css'>
 <style>
-th{
+th {
     text-align: right;
 }
 </style>
 </head>
 <body>
 
-<jsp:include page="../header.jsp" />
+<jsp:include page="../header.jsp"></jsp:include>
 
 <h1>매니저 등록(MVC)</h1>
 
-<form action='add' method='post' enctype="multipart/form-data"> 
+<form action='add' method='post' enctype="multipart/form-data">
 <table>
 <tbody>
 <tr>
@@ -37,7 +37,7 @@ th{
 </tr>
 <tr>
     <th>전화</th>
-    <td><input type='tel' name='tel'></td>
+    <td><input type="tel" name='tel'></td>
 </tr>
 <tr>
     <th>직위</th>
@@ -49,13 +49,25 @@ th{
 </tr>
 <tr>
     <th></th>
-    <td><button>등록</button></td> <!-- button 타입생략시 submit임 -->
+    <td><button>등록</button></td>
 </tr>
 </tbody>
 </table>
 </form>
 
-<jsp:include page="../footer.jsp" />
+<jsp:include page="../footer.jsp"/>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+    

@@ -13,55 +13,57 @@ import bitcamp.java110.cms.domain.Student;
 import bitcamp.java110.cms.service.StudentService;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
-    @Autowired StudentDao studentDao;
     @Autowired MemberDao memberDao;
     @Autowired PhotoDao photoDao;
-
+    @Autowired StudentDao studentDao;
+    
     @Override
     public void add(Student student) {
-
         memberDao.insert(student);
         studentDao.insert(student);
-
-        if(student.getPhoto() != null) {
+        
+        if (student.getPhoto() != null) {
 
             HashMap<String,Object> params = new HashMap<>();
-            params.put("no",student.getNo());
-            params.put("photo",student.getPhoto());
-
+            params.put("no", student.getNo());
+            params.put("photo", student.getPhoto());
+            
             photoDao.insert(params);
         }
     }
-
+    
     @Override
-    public List<Student> list(int pageNo,int pageSize) {
-
-
-
+    public List<Student> list(int pageNo, int pageSize) {
         HashMap<String,Object> params = new HashMap<>();
-        params.put("rowNo",(pageNo-1)*pageSize);
-        params.put("size",pageSize);
-
+        params.put("rowNo", (pageNo - 1) * pageSize);
+        params.put("size", pageSize);
+        
         return studentDao.findAll(params);
     }
-
+    
     @Override
     public Student get(int no) {
-
         return studentDao.findByNo(no);
     }
-
+    
     @Override
     public void delete(int no) {
-
-        if(studentDao.delete(no) == 0) {
+        if (studentDao.delete(no) == 0) {
             throw new RuntimeException("해당 번호의 데이터가 없습니다.");
         }
-
         photoDao.delete(no);
         memberDao.delete(no);
-
     }
 }
+
+
+
+
+
+
+
+
+
+

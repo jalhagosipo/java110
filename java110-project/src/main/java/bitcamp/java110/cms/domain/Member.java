@@ -5,25 +5,13 @@ import java.io.Serializable;
 public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    protected String tel;
     protected int no;
     protected String name;
     protected String email;
     protected String password;
+    protected String tel;
     protected String photo;
     
-    public String getPhoto() {
-        return photo;
-    }
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-    public String getTel() {
-        return tel;
-    }
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
     public int getNo() {
         return no;
     }
@@ -48,4 +36,17 @@ public class Member implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getTel() {
+        return tel;
+    }
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+    public String getPhoto() {
+        return photo;
+    }
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+    
 }

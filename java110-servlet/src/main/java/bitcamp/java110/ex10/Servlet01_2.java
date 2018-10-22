@@ -33,7 +33,6 @@ public class Servlet01_2 extends HttpServlet{
         //    라고 웹브라우저에게 지시하는 것이다.
         Cookie c2 =  new Cookie("age","12");
         c2.setPath("/");
-        
         // => 현재 경로보다 더 좁히기
         //    "이 쿠키는 /ex10/a/b/** 경로의 서블릿을 요청할 때만 보내달라"
         //    라고 웹브라우저에게 지시하는 것이다.
