@@ -1,4 +1,4 @@
-package bitcamp.java110.cms.web.manager;
+package bitcamp.java110.cms.web.student;
 
 import java.util.List;
 
@@ -8,21 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import bitcamp.java110.cms.domain.Manager;
-import bitcamp.java110.cms.service.ManagerService;
+import bitcamp.java110.cms.domain.Student;
+import bitcamp.java110.cms.service.StudentService;
 import bitcamp.java110.cms.web.PageController;
 
-@Component("/manager/list")
-public class ManagerListController implements PageController { 
+@Component("/student/list")
+public class StudentListController implements PageController { 
     
     @Autowired
-    ManagerService managerService;
+    StudentService studentService;
     
     @Override
     public String service(
             HttpServletRequest request, 
             HttpServletResponse response) {
-        
+
         int pageNo = 1;
         int pageSize = 3;
         
@@ -38,15 +38,8 @@ public class ManagerListController implements PageController {
                 pageSize = 3;
         }
         
-        List<Manager> list = managerService.list(pageNo, pageSize);
+        List<Student> list = studentService.list(pageNo, pageSize);
         request.setAttribute("list", list);
-        return "/manager/list.jsp";
+        return "/student/list.jsp";
     }
 }
-
-
-
-
-
-
-

@@ -14,7 +14,7 @@ import bitcamp.java110.cms.service.ManagerService;
 import bitcamp.java110.cms.web.PageController;
 
 @Component("/manager/add")
-public class ManagerAddServlet implements PageController { 
+public class ManagerAddController implements PageController { 
     
     @Autowired
     ManagerService managerService;
