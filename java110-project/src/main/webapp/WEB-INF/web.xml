@@ -37,14 +37,14 @@
     -->
     
     <!-- 리스너 배치하기 -->
-    <listener>
+    <!--<listener>
         <listener-class>bitcamp.java110.cms.listener.ContextLoaderListener</listener-class>
-    </listener>
+    </listener>-->
     
     <!-- 필터 배치하기 -->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
-        <filter-class>bitcamp.java110.cms.filter.CharacterEncodingFilter</filter-class>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>
@@ -59,7 +59,21 @@
     <!-- 프론트 컨트롤러 서블릿 배치하기 -->
     <servlet>
         <servlet-name>app</servlet-name>
-        <servlet-class>bitcamp.java110.cms.servlet.DispatcherServlet</servlet-class>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        
+        <!-- 프론트 컨트롤러가 사용할 IoC 컨테이너 클래스를 지정하기 -->
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param>
+        
+        <!-- 위에서 지정한 IoC 컨테이너가 사용할 Java config 클래스 -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>bitcamp.java110.cms.AppConfig</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        
         <multipart-config>
             <max-file-size>2000000</max-file-size>
         </multipart-config>
@@ -78,13 +92,3 @@
     </welcome-file-list>
 
 </web-app>
-
-
-
-
-
-
-
-
-
-
