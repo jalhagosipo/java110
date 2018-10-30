@@ -8,8 +8,8 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-    
-    <bean id="c1" class="ex08.Car3"> 
+
+    <bean id="c1" class="ex08.Car3">
         <property name="model" value="소나타"/>
         <property name="cc" value="1980"/>
         <property name="maker" value="비트자동차"/>
@@ -26,4 +26,21 @@
         <property name="valve" value="16"/>
         <property name="diesel" value="true"/>
     </bean>
+    
+    
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

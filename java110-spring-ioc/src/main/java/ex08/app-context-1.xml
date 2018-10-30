@@ -4,13 +4,12 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="c1" class="ex08.Car"> 
+    <bean id="c1" class="ex08.Car">
         <property name="model" value="소나타"/>
         <property name="cc" value="1980"/>
         <property name="maker" value="비트자동차"/>
     </bean>
-    
-    <!-- 이 부분없으면 예외를 발생시키는것임 @autowired일때 -->
+      
     <bean id="e1" class="ex08.Engine">
         <property name="maker" value="캠프자동차"/>
         <property name="valve" value="32"/>
@@ -18,12 +17,27 @@
     </bean>
     
     <!-- BeanPostProcessor 객체를 등록하면,
-                   스프링 IoC 컨테이너가 객체를 생성한 후 실행한다.
-     -->
-     
+         스프링 IoC 컨테이너가 객체를 생성한 후 실행한다.
+    -->
+    
     <!-- 다음 클래스는 객체를 생성한 후 @Autowired 애노테이션을 처리한다. -->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     
     <!-- 다음 클래스는 그냥 아무것도 안한다. 그냥 호출되는지 확인하기 위해서 만들었다. -->
     <bean class="ex08.MyBeanPostProcessor"/>
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

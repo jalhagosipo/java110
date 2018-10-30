@@ -1,21 +1,23 @@
 // setter 호출 : List 프로퍼티 값 설정
 // 
-// XML 문법 // 두방법다 가능하지만 되도록이면 list는 list, array는 array를 써라
+// XML 문법
 // 방법1)
 //      <property name="프로퍼티명">
 //          <list>...</list>
 //      </property>
-//
+// 
 // 방법2)
 //      <property name="프로퍼티명">
 //          <array>...</array>
 //      </property>
-// 
 package ex05;
- import org.springframework.context.ApplicationContext;
+
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
- public class Test03 {
-     public static void main(String[] args) {
+
+public class Test03 {
+
+    public static void main(String[] args) {
         
         ApplicationContext iocContainer = 
                 new ClassPathXmlApplicationContext("ex05/app-context-3.xml");
@@ -40,5 +42,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
         
         CD cd2 = (CD)iocContainer.getBean("cd2");
         System.out.println(cd2);
+        
+        
     }
- }
+
+}
+
+
+
+
+
+
+
+
+

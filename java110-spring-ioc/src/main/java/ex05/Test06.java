@@ -3,10 +3,13 @@
 // => 스프링 IoC 컨테이너가 자동으로 처리한다.
 // 
 package ex05;
- import org.springframework.context.ApplicationContext;
+
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
- public class Test06 {
-     public static void main(String[] args) {
+
+public class Test06 {
+
+    public static void main(String[] args) {
         
         ApplicationContext iocContainer = 
                 new ClassPathXmlApplicationContext("ex05/app-context-6.xml");
@@ -26,10 +29,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
         
         System.out.println("------------------------------");
         
-//        Car c1 = (Car)iocContainer.getBean("c1");
-//        System.out.println(c1);
+        //Car c1 = (Car)iocContainer.getBean("c1");
+        //System.out.println(c1);
         
-//        Car c2 = (Car)iocContainer.getBean("c2");
-//        System.out.println(c2);
+        //Car c2 = (Car)iocContainer.getBean("c2");
+        //System.out.println(c2);
     }
- }
+}
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,6 @@ public class AuthServiceImpl implements AuthService {
     @Autowired ManagerDao managerDao;
     @Autowired TeacherDao teacherDao;
     @Autowired StudentDao studentDao;
-  
 
     @Override
     public Member getMember(
@@ -40,15 +39,4 @@ public class AuthServiceImpl implements AuthService {
             return null;
         }
     }
-    
 }
-
-
-
-
-
-
-
-
-
-

@@ -30,7 +30,7 @@ public class ManagerController {
             @RequestParam(value="pageNo",defaultValue="1") int pageNo,
             @RequestParam(value="pageSize",defaultValue="3") int pageSize,
             Map<String,Object> map) {
-
+        
         if (pageNo < 1)
             pageNo = 1;
         
@@ -53,13 +53,6 @@ public class ManagerController {
         return "/manager/detail.jsp";
     }
     
-    @RequestMapping("/manager/delete")
-    public String delete(int no) throws Exception {
-        
-        managerService.delete(no);
-        return "redirect:list";
-    }
-    
     @RequestMapping("/manager/add")
     public String add(
             Manager manager,
@@ -69,8 +62,6 @@ public class ManagerController {
             return "/manager/form.jsp";
         }
 
-        request.setCharacterEncoding("UTF-8");
-        
         // 사진 데이터 처리
         Part part = request.getPart("file1");
         if (part.getSize() > 0) {
@@ -80,6 +71,22 @@ public class ManagerController {
         }
         
         managerService.add(manager);
+        
         return "redirect:list";
     }
+    
+    @RequestMapping("/manager/delete")
+    public String delete(int no) throws Exception {
+        
+        managerService.delete(no);
+        return "redirect:list";
+    }
+    
 }
+
+
+
+
+
+
+

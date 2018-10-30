@@ -1,4 +1,4 @@
-// 인스턴스 비교 IV : equals()와 hashCode() 자동생성 하기
+// 인스턴스 비교 IV : equals()와 hashCode() 자동 생성하기
 // 
 package ex05;
 
@@ -6,15 +6,14 @@ import java.util.HashSet;
 
 public class Test02_p4 {
 
-    static class Member{ 
+    static class Member {
         String name;
         int age;
-
         public Member(String name, int age) {
             this.name = name;
             this.age = age;
         }
-
+        
         @Override
         public String toString() {
             return "Member [name=" + name + ", age=" + age + "]";
@@ -48,27 +47,39 @@ public class Test02_p4 {
             return true;
         }
     }
-
+    
     public static void main(String[] args) {
-
-        Member obj1 = new Member("홍길동",20);
-        Member obj2 = new Member("홍길동",20);
-
-        if(obj1 == obj2) System.out.println("obj1 == obj2");
+        
+        Member obj1 = new Member("홍길동", 20);
+        Member obj2 = new Member("홍길동", 20);
+        
+        if (obj1 == obj2) System.out.println("obj1 == obj2");
         else System.out.println("obj1 != obj2");
-
-        if(obj1.equals(obj2)) System.out.println("obj1 == obj2");
+        
+        if (obj1.equals(obj2)) System.out.println("obj1 == obj2");
         else System.out.println("obj1 != obj2");
-
+        
+        
         HashSet<Member> set2 = new HashSet<>();
         set2.add(obj1);
         set2.add(obj2);
 
-        System.out.println("-------------------------");
-        for(Member m: set2) {
+        System.out.println("--------------------");
+        for (Member m : set2) {
             System.out.println(m);
         }
-        System.out.println("-------------------------");
+        System.out.println("--------------------");
 
+        
     }
+
 }
+
+
+
+
+
+
+
+
+

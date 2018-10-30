@@ -3,20 +3,21 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-     <bean id="c1" class="ex05.Car">
+
+    <bean id="c1" class="ex05.Car">
         <property name="model" value="소나타"/>
         <property name="cc" value="1980"/>
         <property name="maker" value="현대자동차"/>
     </bean>
-    <!-- 자바 코드: xml의 value들은 전부 문자열임 프리미티브타입은 다 자동으로 바꿔주는것임.
+    <!-- 자바 코드:
         Car obj = new Car();
         obj.setModel("소나타");
-        obj.setCc(Integer.parseInt(1980));
+        obj.setCc(Integer.parseInt("1980"));
         obj.setMaker("현대자동차");
         컨테이너.보관("c1", obj);
      -->
     
-    <bean id="c2" class="ex05.Car"><!-- 아래처럼 type을 적어도되지만 안적어도된다는것임 -->
+    <bean id="c2" class="ex05.Car">
         <property name="model"><value type="java.lang.String">소나타</value></property>
         <property name="cc"><value type="int">1980</value></property>
         <property name="maker"><value type="java.lang.String">현대자동차</value></property>
@@ -74,6 +75,13 @@
         engine.setDiesel(false);
         
         obj.setEngine(engine);
-                  컨테이너.보관("c5", obj);
+        컨테이너.보관("c5", obj);
      -->
 </beans>
+
+
+
+
+
+
+

@@ -34,7 +34,7 @@ public class Servlet04 extends GenericServlet{
         ServletContext ctx = this.getServletContext();
 
         // ServletContext 객체를 통해 현재 웹 애플리케이션의 실제 경로를 알아낸다.
-        String filepath = ctx.getRealPath("/pic1.jpg");
+        String filepath = ctx.getRealPath("/pic2.jpg");
 
         res.setContentType("image/jpeg");
         

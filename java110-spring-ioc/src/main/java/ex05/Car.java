@@ -6,40 +6,39 @@ import java.util.Map;
 import java.util.Set;
 
 public class Car {
-    
     private int no;
     private String model;
     private String maker;
     private int cc;
-    private Date creaetedDate;
+    private Date createdDate;
     private Engine engine;
     private CD[] cds;
     private Set<Tire> tires;
-    private Map<String,Object> options; 
+    private Map<String,Object> options;
     
     public Car() {
         System.out.println("Car() 호출됨!");
     }
-
+    
     public Car(String model, int cc) {
         this.model = model;
         this.cc = cc;
         System.out.println("Car(String,int) 호출됨!");
     }
-
+    
     public Car(int cc, String maker) {
         this.maker = maker;
         this.cc = cc;
         System.out.println("Car(int,String) 호출됨!");
     }
-
-    public Car(String model, int cc,Engine engine) {
-        this.engine = engine;
+    
+    public Car(String model, int cc, Engine engine) {
         this.model = model;
         this.cc = cc;
+        this.engine = engine;
         System.out.println("Car(String,int,Engine) 호출됨!");
     }
-    
+
     public int getNo() {
         return no;
     }
@@ -76,15 +75,15 @@ public class Car {
         this.cc = cc;
     }
 
-    public Date getCreaetedDate() {
-        return creaetedDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreaetedDate(Date creaetedDate) {
-        System.out.println("Car.setCreaetedDate()");
-        this.creaetedDate = creaetedDate;
+    public void setCreatedDate(Date createdDate) {
+        System.out.println("Car.setCreatedDate()");
+        this.createdDate = createdDate;
     }
-
+    
     public Engine getEngine() {
         return engine;
     }
@@ -102,7 +101,7 @@ public class Car {
         System.out.println("Car.setCds()");
         this.cds = cds;
     }
-    
+
     public Set<Tire> getTires() {
         return tires;
     }
@@ -123,8 +122,13 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car [no=" + no + ", model=" + model + ", maker=" + maker + ", cc=" + cc + ", creaetedDate="
-                + creaetedDate + ", engine=" + engine + ", cds=" + Arrays.toString(cds) + ", tires=" + tires
-                + ", options=" + options + "]";
+        return "Car [no=" + no + ", model=" + model + ", maker=" + maker + ", cc=" + cc + ", createdDate=" + createdDate
+                + ", engine=" + engine + ", cds=" + Arrays.toString(cds) + ", tires=" + tires + ", options=" + options
+                + "]";
     }
+
+    
+    
+    
+    
 }

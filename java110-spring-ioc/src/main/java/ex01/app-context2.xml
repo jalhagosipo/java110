@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- IoC컨테이너.보관("c1",CarFactory1.create("소나타")); -->
+    <!-- IoC컨테이너.보관("c1", CarFactory1.create("소나타")); -->
     <bean class="ex01.CarFactory1" factory-method="create" id="c1">
         <constructor-arg value="소나타"/>
     </bean>

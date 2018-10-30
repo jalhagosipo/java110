@@ -17,7 +17,7 @@ import bitcamp.java110.cms.domain.Student;
 import bitcamp.java110.cms.service.StudentService;
 
 @Controller
-public class StudentController{ 
+public class StudentController { 
     
     @Autowired
     StudentService studentService;
@@ -31,11 +31,11 @@ public class StudentController{
             @RequestParam(value="pageSize",defaultValue="3") int pageSize,
             Map<String,Object> map) {
 
-            if (pageNo < 1)
-                pageNo = 1;
+        if (pageNo < 1)
+            pageNo = 1;
 
-            if (pageSize < 3 || pageSize > 10)
-                pageSize = 3;
+        if (pageSize < 3 || pageSize > 10)
+            pageSize = 3;
         
         List<Student> list = studentService.list(pageNo, pageSize);
         map.put("list", list);
@@ -52,13 +52,6 @@ public class StudentController{
         return "/student/detail.jsp";
     }
     
-    @RequestMapping("/student/delete")
-    public String delete(int no) throws Exception {
-
-        studentService.delete(no);
-        return "redirect:list";
-    }
-    
     @RequestMapping("/student/add")
     public String add(
             Student student,
@@ -68,8 +61,6 @@ public class StudentController{
             return "/student/form.jsp";
         }
 
-        request.setCharacterEncoding("UTF-8");
-        
         Part part = request.getPart("file1");
         if (part.getSize() > 0) {
             String filename = UUID.randomUUID().toString();
@@ -78,6 +69,15 @@ public class StudentController{
         }
         
         studentService.add(student);
+        
+        return "redirect:list";
+        
+    }
+    
+    @RequestMapping("/student/delete")
+    public String delete(int no) throws Exception {
+        
+        studentService.delete(no);
         return "redirect:list";
     }
 }

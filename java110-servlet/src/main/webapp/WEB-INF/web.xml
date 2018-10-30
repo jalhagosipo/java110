@@ -18,9 +18,9 @@
 	</context-param>
 	
 	<!-- 리스너 클래스에 대한 정보 설정 -->
-	<listener>
+	<!-- <listener>
 	   <listener-class>bitcamp.java110.ex07.Listener01</listener-class>
-	</listener>
+	</listener> -->
 
 	<!-- <request-character-encoding>UTF-8</request-character-encoding> -->
 

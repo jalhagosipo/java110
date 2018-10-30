@@ -13,7 +13,7 @@ import bitcamp.java110.cms.domain.Member;
 import bitcamp.java110.cms.service.AuthService;
 
 @Controller
-public class AuthController{
+public class AuthController {
 
     @Autowired
     AuthService authService;
@@ -71,9 +71,7 @@ public class AuthController{
     
     @RequestMapping("/auth/logout")
     public String logout(HttpSession session) {
-        
         session.invalidate();
-        
         return "redirect:login";
     }
 }

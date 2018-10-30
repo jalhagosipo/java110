@@ -1,7 +1,10 @@
 package ex09;
- import java.sql.Date;
- import org.springframework.stereotype.Component;
- @Component
+
+import java.sql.Date;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car3 {
     private int no;
     private String model;
@@ -17,43 +20,59 @@ public class Car3 {
         System.out.println("Car(Engine) 호출됨!");
         this.engine = engine;
     }
-     public int getNo() {
+
+    public int getNo() {
         return no;
     }
-     public void setNo(int no) {
+
+    public void setNo(int no) {
         this.no = no;
     }
-     public String getModel() {
+
+    public String getModel() {
         return model;
     }
-     public void setModel(String model) {
+
+    public void setModel(String model) {
         this.model = model;
     }
-     public String getMaker() {
+
+    public String getMaker() {
         return maker;
     }
-     public void setMaker(String maker) {
+
+    public void setMaker(String maker) {
         this.maker = maker;
     }
-     public int getCc() {
+
+    public int getCc() {
         return cc;
     }
-     public void setCc(int cc) {
+
+    public void setCc(int cc) {
         this.cc = cc;
     }
-     public Date getCreatedDate() {
+
+    public Date getCreatedDate() {
         return createdDate;
     }
-     public void setCreatedDate(Date createdDate) {
+
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
     
     public Engine getEngine() {
         return engine;
     }
-     @Override
+
+    @Override
     public String toString() {
         return "Car [no=" + no + ", model=" + model + ", maker=" + maker + ", cc=" + cc + ", createdDate=" + createdDate
                 + ", engine=" + engine + "]";
     }
+
+    
+    
+    
+    
 }

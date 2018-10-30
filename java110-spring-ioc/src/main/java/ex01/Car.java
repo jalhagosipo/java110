@@ -3,23 +3,22 @@ package ex01;
 import java.sql.Date;
 
 public class Car {
-    
     private int no;
     private String model;
     private String maker;
     private int cc;
-    private Date creaetedDate;
+    private Date createdDate;
     
     public Car() {
         System.out.println("Car() 호출됨!");
     }
-
+    
     public Car(String model, int cc) {
         this.model = model;
         this.cc = cc;
         System.out.println("Car(String,int) 호출됨!");
     }
-
+    
     public Car(int cc, String model) {
         this.model = model;
         this.cc = cc;
@@ -58,17 +57,20 @@ public class Car {
         this.cc = cc;
     }
 
-    public Date getCreaetedDate() {
-        return creaetedDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreaetedDate(Date creaetedDate) {
-        this.creaetedDate = creaetedDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     @Override
     public String toString() {
-        return "Car [no=" + no + ", model=" + model + ", maker=" + maker + ", cc=" + cc + ", creaetedDate="
-                + creaetedDate + "]";
+        return "Car [no=" + no + ", model=" + model + ", maker=" + maker + ", cc=" + cc + ", createdDate=" + createdDate
+                + "]";
     }
+    
+    
+    
 }

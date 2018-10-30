@@ -2,17 +2,20 @@
 // 
 // XML 문법
 // 방법)
-//      <bean id="아이디" class="클래스명">
+//      <bean id="아이디" class="클래스명"
 //            p:프로퍼티명="값" p:프로퍼티명-ref="객체"/>
-//
+// 
 // 단 <beans> 태그에 p 네임스페이스를 선언해야 한다.
 // p 네임스페이스는 XML Schema 파일의 URL을 지정할 필요가 없다.
 // 
 package ex05;
- import org.springframework.context.ApplicationContext;
+
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
- public class Test05 {
-     public static void main(String[] args) {
+
+public class Test05 {
+
+    public static void main(String[] args) {
         
         ApplicationContext iocContainer = 
                 new ClassPathXmlApplicationContext("ex05/app-context-5.xml");
@@ -34,5 +37,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
         
         Car c1 = (Car)iocContainer.getBean("c1");
         System.out.println(c1);
+        
+        
     }
- }
+
+}
+
+
+
+
+
+
+
+
+

@@ -3,10 +3,13 @@
 // 
 //
 package ex09;
- import org.springframework.context.ApplicationContext;
+
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
- public class Test02 {
-     public static void main(String[] args) {
+
+public class Test02 {
+
+    public static void main(String[] args) {
         
         ApplicationContext iocContainer = 
                 new ClassPathXmlApplicationContext("ex09/app-context-2.xml");
@@ -31,4 +34,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
         
         
     }
- }
+
+}
+
+
+
+
+
+
+
+
+

@@ -6,10 +6,13 @@
 //      </bean>
 // 
 package ex05;
- import org.springframework.context.ApplicationContext;
+
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
- public class Test01 {
-     public static void main(String[] args) {
+
+public class Test01 {
+
+    public static void main(String[] args) {
         
         ApplicationContext iocContainer = 
                 new ClassPathXmlApplicationContext("ex05/app-context-1.xml");
@@ -40,5 +43,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
         
         Car c4 = (Car)iocContainer.getBean("c4");
         System.out.println(c4);
+        
     }
- }
+
+}
+
+
+
+
+
+
+
+
+

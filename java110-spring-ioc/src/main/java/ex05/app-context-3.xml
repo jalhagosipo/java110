@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-        
-     <bean id="cd1" class="ex05.CD">
+
+    <bean id="cd1" class="ex05.CD">
         <property name="songs">
             <list>
                 <value type="java.lang.String">홍길동</value>
@@ -13,9 +13,9 @@
                 <value>홍길동</value>
             </list>
         </property>
-     </bean>
-     
-     <bean id="cd2" class="ex05.CD">
+    </bean>
+    
+    <bean id="cd2" class="ex05.CD">
         <property name="songs">
             <array>
                 <value type="java.lang.String">홍길동</value>
@@ -24,5 +24,14 @@
                 <value>홍길동</value>
             </array>
         </property>
-     </bean>
+    </bean>
+    
+    
 </beans>
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- IoC컨테이너.보관("c1",new Car()); -->
-    <bean class="ex01.Car" id="c1"/> 
+    <!-- IoC컨테이너.보관("c1", new Car()); -->
+    <bean class="ex01.Car" id="c1"/>
 
 </beans>

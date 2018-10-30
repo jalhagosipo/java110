@@ -17,7 +17,7 @@ import bitcamp.java110.cms.domain.Teacher;
 import bitcamp.java110.cms.service.TeacherService;
 
 @Controller
-public class TeacherController{ 
+public class TeacherController { 
     
     @Autowired
     TeacherService teacherService;
@@ -31,14 +31,15 @@ public class TeacherController{
             @RequestParam(value="pageSize",defaultValue="3") int pageSize,
             Map<String,Object> map) {
 
-            if (pageNo < 1)
-                pageNo = 1;
-
-            if (pageSize < 3 || pageSize > 10)
-                pageSize = 3;
+        if (pageNo < 1)
+            pageNo = 1;
+        
+        if (pageSize < 3 || pageSize > 10)
+            pageSize = 3;
         
         List<Teacher> list = teacherService.list(pageNo, pageSize);
         map.put("list", list);
+        
         return "/teacher/list.jsp";
     }
     
@@ -52,13 +53,6 @@ public class TeacherController{
         return "/teacher/detail.jsp";
     }
     
-    @RequestMapping("/teacher/delete")
-    public String delete(int no) throws Exception {
-
-        teacherService.delete(no);
-        return "redirect:list";
-    }
-    
     @RequestMapping("/teacher/add")
     public String add(
             Teacher teacher,
@@ -68,8 +62,6 @@ public class TeacherController{
             return "/teacher/form.jsp";
         }
         
-        request.setCharacterEncoding("UTF-8");
-        
         Part part = request.getPart("file1");
         if (part.getSize() > 0) {
             String filename = UUID.randomUUID().toString();
@@ -78,7 +70,14 @@ public class TeacherController{
         }
         
         teacherService.add(teacher);
-        request.setAttribute("viewUrl", "redirect:list");
+
+        return "redirect:list";
+    }
+    
+    @RequestMapping("/teacher/delete")
+    public String delete(int no) throws Exception {
+
+        teacherService.delete(no);
         return "redirect:list";
     }
 }

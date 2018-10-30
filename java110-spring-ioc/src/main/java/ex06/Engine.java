@@ -1,7 +1,6 @@
 package ex06;
 
 public class Engine {
-
     private String maker;
     private int valve;
     private boolean isDiesel;
@@ -16,7 +15,7 @@ public class Engine {
         this.isDiesel = isDiesel;
         System.out.println("Engine(String,int,boolean) 호출됨!");
     }
-
+    
     public String getMaker() {
         return maker;
     }
@@ -40,4 +39,7 @@ public class Engine {
     public String toString() {
         return "Engine [maker=" + maker + ", valve=" + valve + ", isDiesel=" + isDiesel + "]";
     }
+    
+    
+    
 }
