@@ -60,3 +60,13 @@ public class StudentServiceImpl implements StudentService {
         memberDao.delete(no);
     }
 }
+
+
+
+
+
+
+
+
+
+

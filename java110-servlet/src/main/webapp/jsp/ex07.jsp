@@ -25,7 +25,8 @@
     &lt;%@ include%>
     &lt;%@ taglib%>
 </pre>
- <h1>page 지시명령문</h1>
+
+<h1>page 지시명령문</h1>
 <pre>
 language 속성
     - 기본 값 "java"
@@ -60,7 +61,8 @@ buffer 속성
         - 버퍼를 초과하는 순간 클라이언트로 즉시 출력된다.
       autoFlush="false"
         - 버퍼를 초과하는 순간 예외가 발생한다.
- autoFlush 속성
+
+autoFlush 속성
     - 버퍼가 꽉찼을 때 클라이언트로 내보낼지 여부를 설정한다.
     - 기본 값은 true이다.
       true : 버퍼가 꽉차는 즉시 출력한다.
