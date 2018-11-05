@@ -24,7 +24,7 @@
 1: ${requestScope.name2}<br>
 2: ${pageScope.name2}<br>
 
-<c:set var="name3">유관순</c:set>
+<c:set var="name3">유관순</c:set> 
 1: ${requestScope.name3}<br>
 2: ${pageScope.name3}<br>
 

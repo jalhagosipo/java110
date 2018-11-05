@@ -20,6 +20,9 @@
 <c:set var="age" value="16"/>
 <c:set var="gender" value="woman"/>
 
+${param.name}
+${param.age}
+
 <c:if test="${not empty name}">
     <p>${name}님 환영합니다!</p>
 </c:if>

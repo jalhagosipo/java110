@@ -9,7 +9,7 @@
 <title>로그인</title>
 <style>
 th {
-    text-align: right;
+    text-align: right; 
 }
 </style>
 </head>

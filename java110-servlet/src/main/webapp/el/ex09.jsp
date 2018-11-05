@@ -71,6 +71,5 @@ if(a.equals(b)){ // 인스턴스의 값을 비교!
     out.println("equals() : 다르다!<br>");
 }
 %>
-
 </body>
 </html>
